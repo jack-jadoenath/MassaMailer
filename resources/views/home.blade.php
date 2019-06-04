@@ -14,7 +14,7 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <img class="feature-image" src="{{asset('img/notegit.png')}}" />
+        <img class="feature-image" src="{{asset('img/note.png')}}" />
     </div>
 
     <div class="col-md-6" >

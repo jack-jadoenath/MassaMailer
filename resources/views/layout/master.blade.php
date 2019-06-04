@@ -13,15 +13,15 @@
                 <a class="navbar-brand" href="{{ url('/') }}">Massa Mailer</a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Packeten</a>
+                        <a class="nav-link" href="#">Pakketten</a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Contact
+                        Support
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">FAQ</a>
-                        <a class="dropdown-item" href="#">Support</a>
+                        <a class="dropdown-item" href="#">Contact</a>
                     </div>
                     </li>
                     <li class="nav-item">
