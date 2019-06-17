@@ -15,7 +15,11 @@ class CreateTemplatesTable extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('name');
+            $table->unsignedBigInteger('headers_id');
+            $$table->foreign('headers_id')->references('id')->on('headers');
+            $table->unsignedBigInteger('footers_id');
+            $$table->foreign('footers_id')->references('id')->on('footers');
         });
     }
 

@@ -15,7 +15,9 @@ class CreateMailinglistsTable extends Migration
     {
         Schema::create('mailinglists', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('name');
+            $table->unsignedBigInteger('users_id');
+            $$table->foreign('users_id')->references('id')->on('users');
         });
     }
 

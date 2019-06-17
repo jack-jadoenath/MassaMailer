@@ -15,7 +15,10 @@ class CreateHeadersTable extends Migration
     {
         Schema::create('headers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('size');
+            $table->string('color');
+            $table->integer('fontsize');
+            $table->string('fontcolor');
         });
     }
 
