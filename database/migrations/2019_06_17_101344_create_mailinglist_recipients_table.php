@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMailingListsHasRecipientsTable extends Migration
+class CreateMailinglistRecipientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMailingListsHasRecipientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mailingLists_has_recipients_table', function (Blueprint $table) {
+        Schema::create('mailinglist_recipients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateMailingListsHasRecipientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mailingLists_has_recipients_table');
+        Schema::dropIfExists('mailinglist_recipients');
     }
 }
