@@ -16,12 +16,12 @@ class CreateSupportticketsTable extends Migration
         Schema::create('supporttickets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            //$table->foreign('users_id')->references('id')->on('users');
             $table->string('question');
             $table->longText('message');
             $table->longText('answer');
-            $table->timestamps('date');
-            $table->boolean('status');
+            $table->timestamp('date');
+            $table->tinyInteger('status');
         });
     }
 

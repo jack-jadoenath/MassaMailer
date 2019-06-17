@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMailinglistsTable extends Migration
+class Update1MailinglistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateMailinglistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mailinglists', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->unsignedBigInteger('users_id');
-            #$table->foreign('users_id')->references('id')->on('users');
+        Schema::table('mailinglists', function (Blueprint $table) {
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 

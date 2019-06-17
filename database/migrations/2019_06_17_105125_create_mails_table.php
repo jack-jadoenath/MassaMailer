@@ -17,10 +17,10 @@ class CreateMailsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('message');
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->unsignedBigInteger('templates_id');
-            $$table->foreign('templates_id')->references('id')->on('templates');
+            #$table->unsignedBigInteger('users_id');
+            #$table->foreign('users_id')->references('id')->on('users');
+            #$table->unsignedBigInteger('templates_id');
+            #$table->foreign('templates_id')->references('id')->on('templates');
         });
     }
 

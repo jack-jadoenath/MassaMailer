@@ -16,9 +16,9 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->increments('limitlist');
-            $table->increments('limitmails');
-            $table->increments('limittemplates');
+            $table->integer('limitlist');
+            $table->integer('limitmails');
+            $table->integer('limittemplates');
             $table->decimal('price', 5, 2);
         });
     }
