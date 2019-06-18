@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('admin'); //Is deze gebruiker een admin ja (1) of nee (0)
+            $table->boolean('admin')->nullable(); //Is deze gebruiker een admin ja (1) of nee (0)
             //$table->unsignedBigInteger('packages_id');
             //$table->foreign('packages_id')->references('id')->on('packages');
 
