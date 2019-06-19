@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
 
 class StoreSupportticketRequest extends FormRequest
 {
@@ -13,7 +14,13 @@ class StoreSupportticketRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if (Auth::check())
+        {
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 
     /**
@@ -25,9 +32,8 @@ class StoreSupportticketRequest extends FormRequest
     {
         return [
             //
-            'question' => 'required',
-            'message' => 'required',
-            'answer' => 'required'
+            'question' => 'required|max:100',
+            'message' => 'required'
         ];
     }
 }
