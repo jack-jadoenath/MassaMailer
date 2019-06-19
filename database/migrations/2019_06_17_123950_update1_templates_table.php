@@ -18,6 +18,8 @@ class Update1TemplatesTable extends Migration
             $table->foreign('headers_id')->references('id')->on('headers');
             $table->unsignedBigInteger('footers_id');
             $table->foreign('footers_id')->references('id')->on('footers');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 

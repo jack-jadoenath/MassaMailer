@@ -19,7 +19,7 @@ class CreateSupportticketsTable extends Migration
             //$table->foreign('users_id')->references('id')->on('users');
             $table->string('question');
             $table->longText('message');
-            $table->longText('answer');
+            $table->longText('answer')->nullable();
             $table->timestamp('date');
             $table->tinyInteger('status');
         });
