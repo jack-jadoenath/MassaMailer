@@ -76,9 +76,11 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supportticket $supportticket)
+    public function edit($supportticket)
     {
         //
+        //dd(['supportticket' => $supportticket]);
+        $supportticket = Supportticket::findOrFail($supportticket);
         return view('support.edit', compact('supportticket'))->with('message', 'Uw tickets is succesvol aangemaakt.');
     }
 
@@ -100,9 +102,10 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supportticket $supportticket)
+    public function destroy($supportticket)
     {
         //
+        $supportticket = Supportticket::findOrFail($supportticket);
         $supportticket->delete();
         return redirect()->route('contact.index')->with('message', 'Ticket is succesvol verwijder.');
     }

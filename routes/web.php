@@ -19,6 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/contact/delete/{supportticket}', 'SupportticketController@destroy')->name('contact.delete');
-Route::get('/contact/{supportticket}/edit', 'SupportticketController@edit')->name('contact.edit');
 Route::resource('/contact', 'SupportticketController');
