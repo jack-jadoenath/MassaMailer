@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use Session;
 class AdminloginController extends Controller
 {
     /*
@@ -20,7 +20,7 @@ class AdminloginController extends Controller
     */
 
     use AuthenticatesUsers;
-
+    
     /**
      * Where to redirect users after login.
      *
@@ -39,7 +39,14 @@ class AdminloginController extends Controller
     }
 
     public function adminLogin(){
-        return view('auth.admin.login'); 
+        $value = session('error');
+        if($value != null){
+            return view('auth.admin.login')->with('error', $value);
+           
+        }else{
+            return view('auth.admin.login'); 
+        }
+        
     }
 
     

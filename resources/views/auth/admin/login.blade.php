@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
+                        <span class="invalid-feedback" style="display: block;" role="alert">
+                            <strong>{{ session('error') }}</strong>
+                        </span>
                     <form method="POST" action="{{ route('admin.login') }}">
                         @csrf
 

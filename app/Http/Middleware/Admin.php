@@ -22,12 +22,19 @@ class Admin
                     return redirect('admin/dashboard');
                 }
                 return $next($request);
+            }else{
+                Auth::logout();
+                session(['error' => "Toegang Geweigerd"]);
+                return redirect()->route('admin')->with('error', 'Toegang Geweigerd');
             }
         }
         else if($request->getPathInfo() == "/admin"){
             return $next($request);
         }else{
-            return redirect('admin')->with('message','Toegang Geblokkeerd');
+            session(['error' => "Toegang Geweigerd"]);
+            return redirect()->route('admin')->with('error', 'Toegang Geweigerd');
         }
+
+        return $next($request);
     }
 }
