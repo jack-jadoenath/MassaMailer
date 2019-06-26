@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Supportticket;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreSupportticketRequest;
+use App\Http\Requests\UpdateSupportticketRequest;
 use Auth;
 use Carbon\Carbon;
 
@@ -91,9 +92,15 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supportticket $supportticket)
+    public function update(UpdateSupportticketRequest $request, $supportticket)
     {
         //
+        $supportticket = Supportticket::findOrFail($supportticket);
+        $supportticket->question = $request->question;
+        $supportticket->message = $request->message;
+        $supportticket->save();
+
+        return redirect()->route('contact.index')->with('message', 'Support Ticket is succesvol Bewerkt');
     }
 
     /**

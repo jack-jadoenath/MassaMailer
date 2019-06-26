@@ -6,8 +6,9 @@
             {{ session('message') }}
         @endif
 
-        <form method="POST" action="{{ route('contact.index') }}">
+        <form method="POST" action="{{ route('contact.update', $supportticket) }}">
             @csrf
+            {{ method_field('PATCH') }}
 
             <div class="form-group row">
                 <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Vraag') }}</label>
