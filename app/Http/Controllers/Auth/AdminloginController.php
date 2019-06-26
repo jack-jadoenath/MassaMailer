@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
-class AdminloginControllerLogin extends Controller
+class AdminloginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -25,8 +26,8 @@ class AdminloginControllerLogin extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
-
+    protected $redirectTo = '/admin/dashboard';
+        
     /**
      * Create a new controller instance.
      *
@@ -36,5 +37,11 @@ class AdminloginControllerLogin extends Controller
     {
         $this->middleware('admin')->except('logout');
     }
+
+    public function adminLogin(){
+        return view('auth.admin.login'); 
+    }
+
+    
 }
 
