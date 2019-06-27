@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.adminlogin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container h-100">
+    <div class="row justify-content-center vertical-align">
+        <div class="col-8 my-auto item-center">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Admin Login') }}</div>
 
                 <div class="card-body">
 
