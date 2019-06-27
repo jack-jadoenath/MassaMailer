@@ -21,15 +21,12 @@
 <div class="row">
     <div class="col-md-6">
         <h1>Massa Mailer</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius a libero vel mollis. Curabitur
-            fermentum massa nunc, et tempor sem efficitur nec. Vivamus eleifend arcu ac ante convallis tristique.
-            Vestibulum vel sapien sed tellus vulputate elementum. Vivamus nulla nibh, fringilla sagittis leo
-            scelerisque, lobortis aliquam enim. Integer tincidunt scelerisque lorem sed mattis. Etiam convallis
-            consequat mauris, ultrices aliquet tortor maximus sed. Quisque lacinia ex quis luctus lobortis. Sed dictum
-            id purus pretium tincidunt. Ut fringilla, tellus et dignissim lobortis, massa orci eleifend justo, id porta
-            nulla massa nec enim. Suspendisse vitae risus lacinia, iaculis augue vel, ultrices sem. Vestibulum non
-            scelerisque sem. Pellentesque eget venenatis enim. Pellentesque pulvinar finibus hendrerit. Suspendisse
-            potenti. Morbi eu lorem vehicula, vehicula purus nec, euismod ante.</p>
+        <p>Massa Mailer is an tool for companies to send emails to multiple recipients.
+            With customizable email templates it is possible to create a personal tough to your message.
+            Massa Mailer allows for multiple mailing lists with this you can have different mails for different targets.
+            With different packages you can upgrade your reach to multiple customers.
+            Massa Mailer is basically the ultimate tool for email marketing.
+        </p>
     </div>
 
     <div class="col-md-6">
@@ -42,16 +39,13 @@
     </div>
 
     <div class="col-md-6">
-        <h1>Massa Mailer</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius a libero vel mollis. Curabitur
-            fermentum massa nunc, et tempor sem efficitur nec. Vivamus eleifend arcu ac ante convallis tristique.
-            Vestibulum vel sapien sed tellus vulputate elementum. Vivamus nulla nibh, fringilla sagittis leo
-            scelerisque, lobortis aliquam enim. Integer tincidunt scelerisque lorem sed mattis. Etiam convallis
-            consequat mauris, ultrices aliquet tortor maximus sed. Quisque lacinia ex quis luctus lobortis. Sed dictum
-            id purus pretium tincidunt. Ut fringilla, tellus et dignissim lobortis, massa orci eleifend justo, id porta
-            nulla massa nec enim. Suspendisse vitae risus lacinia, iaculis augue vel, ultrices sem. Vestibulum non
-            scelerisque sem. Pellentesque eget venenatis enim. Pellentesque pulvinar finibus hendrerit. Suspendisse
-            potenti. Morbi eu lorem vehicula, vehicula purus nec, euismod ante.</p>
+        <h1>What is email marketing?</h1>
+        <p>Email marketing is the act of sending a commercial message, typically to a group of people, using email. 
+            In its broadest sense, every email sent to a potential or current customer could be considered email marketing. 
+            It usually involves using email to send advertisements, request business, or solicit sales or donations, and is meant to build loyalty, trust, or brand awareness. 
+            Marketing emails can be sent to a purchased lead list or a current customer database. 
+            The term usually refers to sending email messages with the purpose of enhancing a merchant's relationship with current or previous customers, encouraging customer loyalty and repeat business, acquiring new customers or convincing current customers to purchase something immediately, and sharing third-party ads. 
+        </p>
     </div>
 </div>
 @endsection
