@@ -76,7 +76,7 @@
                             <div class="col-md-12 offset-md-2">
                                 <br>
                                 <a class="btn btn-link" href="{{ route('register') }}">
-                                    {{ __("Don't have an account yet? Click here to register") }}
+                                    {{ __("Heb je nog geen account? klik hier om te registreren") }}
                                 </a>
                             </div>
                         </div>
