@@ -59,7 +59,7 @@
                 <form method="POST" action="{{ route('contact.destroy', $supportticket) }}">
                     {{ method_field('DELETE') }}
                     @csrf
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-trash" ></i></button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-minus-circle" ></i></button>
                 </form>
             </div>
             <div class="card-body">{{ $supportticket->message }}</div> 

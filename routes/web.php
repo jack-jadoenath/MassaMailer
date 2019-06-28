@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/contact', 'SupportticketController');
 Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin')->name('admin');
 Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashboard');
+Route::resource('/admin/support', 'Auth\Admin\SupportController');
