@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-sm navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('MassaMailer') }}
+                    MassaMailer
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
