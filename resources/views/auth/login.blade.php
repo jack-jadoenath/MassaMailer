@@ -70,6 +70,17 @@
                                 @endif
                             </div>
                         </div>
+
+                        @if (Route::has('register'))
+                        <div class="form-group row mb-0">
+                            <div class="col-md-12 offset-md-2">
+                                <br>
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    {{ __("Don't have an account yet? Click here to register") }}
+                                </a>
+                            </div>
+                        </div>
+                        @endif
                     </form>
                 </div>
             </div>
