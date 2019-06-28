@@ -40,11 +40,12 @@
 
     <div class="col-md-6">
         <h1>What is email marketing?</h1>
-        <p>Email marketing is the act of sending a commercial message, typically to a group of people, using email. 
-            In its broadest sense, every email sent to a potential or current customer could be considered email marketing. 
-            It usually involves using email to send advertisements, request business, or solicit sales or donations, and is meant to build loyalty, trust, or brand awareness. 
-            Marketing emails can be sent to a purchased lead list or a current customer database. 
-            The term usually refers to sending email messages with the purpose of enhancing a merchant's relationship with current or previous customers, encouraging customer loyalty and repeat business, acquiring new customers or convincing current customers to purchase something immediately, and sharing third-party ads. 
+        <p>E-mailmarketing is een vorm van direct marketing die e-mail gebruikt om commerciële of fondsenwervende boodschappen naar een doelgroep te sturen.
+            In de breedste zin kan elke e-mail die is gestuurd naar een potentiële of huidige klant worden beschouwd als e-mailmarketing, maar deze term wordt normaal gebruikt om te verwijzen naar:
+            <li>Het sturen van e-mails met als doel het verbeteren van de relatie van een onderneming met zijn huidige of oude klanten en om klantloyaliteit en herhaal aankopen te vergroten.</li>
+            <li>Het sturen van e-mails met als doel om nieuwe klanten te werven of om oude klanten te overtuigen iets onmiddellijk te kopen.</li>
+            <li>Toevoegen van reclame in e-mails die door andere bedrijven naar hun klanten worden gestuurd.</li><br>
+        Onderzoekers schatten dat Amerikaanse bedrijven meer dan 1.51 miljard dollar uitgeven aan e-mailmarketing in 2011 en dat dit zal groeien tot $2.468 miljard in 2016.
         </p>
     </div>
 </div>

@@ -24,4 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/contact', 'SupportticketController');
 Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin')->name('admin');
 Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashboard');
+<<<<<<< HEAD
 Route::resource('/admin/support', 'Auth\Admin\SupportController');
+=======
+Route::resource('/admin/support', 'Auth\Admin\SupportController');
+>>>>>>> 494fe8a2077fc0e84edd654ed44d939f5db84614
