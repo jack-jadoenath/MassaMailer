@@ -38,6 +38,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pakketten</a>
                         </li>
+                        @auth
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Mail<span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Berichten
+                                </a>
+                                <a class=" dropdown-item" href="#">Templates
+                                </a>
+                                <a class=" dropdown-item" href="#">Lijsten
+                                </a>
+                            </div>
+                        </li>
+                        @endauth
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -50,12 +66,6 @@
                                 </a>
                             </div>
                         </li>
-                        @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mailing List</a>
-                        </li>
-                        @endauth
-
                         @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

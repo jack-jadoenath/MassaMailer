@@ -18,8 +18,8 @@
 
     <nav class="navbar navbar-expand-sm navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                MassaMailer
+            <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
+                Admin Dashboard
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -31,7 +31,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/admin/dashboard') }}">Admin dashboard</a>
+                        <a class="nav-link" href="{{ url('/') }}">Massa Mailer</a>
                     </li>
                 </ul>
 
