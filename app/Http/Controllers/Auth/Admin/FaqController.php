@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth\Admin;
 
 use App\Faq;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -15,6 +16,9 @@ class FaqController extends Controller
     public function index()
     {
         //
+        $faqs = Faq::all();
+
+        return view('auth.admin.faq.index', compact('faqs'));
     }
 
     /**

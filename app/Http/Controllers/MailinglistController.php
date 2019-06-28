@@ -14,7 +14,7 @@ class MailinglistController extends Controller
      */
     public function index()
     {
-        $mailinglists = mailinglists::all();
+        $mailinglists = Mailinglist::all();
 
         return view('mailinglist.index', compact('mailinglists'));
     }

@@ -13,9 +13,8 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row">{{$mailinglists->id}}</td>
+                
             </tr>
-            @endforeach
         </tbody>
     </table>
 
