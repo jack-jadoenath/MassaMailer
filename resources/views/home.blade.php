@@ -21,11 +21,11 @@
 <div class="row">
     <div class="col-md-6">
         <h1>Massa Mailer</h1>
-        <p>Massa Mailer is an tool for companies to send emails to multiple recipients.
-            With customizable email templates it is possible to create a personal tough to your message.
-            Massa Mailer allows for multiple mailing lists with this you can have different mails for different targets.
-            With different packages you can upgrade your reach to multiple customers.
-            Massa Mailer is basically the ultimate tool for email marketing.
+        <p>Massa Mailer is een programma voor bedrijven zodat ze emails kunnen sturen naar meerdere van hun klanten.
+            Met verschillende templates is het mogelijk om een persoonlijke touch te geven aan de mails die vertuurd worden
+            Massa Mailer geeft de mogelijkheid om meerdere lijsten te creeëren voor verschillende emails voor verschillende doelgroepen.
+            Door verschillende pakketten kan is het mogelijk om het berijk van het bedrijf te vergroten naar meerdere klanten.
+            Massa Mailer is in het kort de beste tool voor email marketing.
         </p>
     </div>
 
