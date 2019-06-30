@@ -13,11 +13,12 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($mailinglists as $mailinglist)
             <tr>
-                <td scope="row">{{ $mailinglists->id }}</td>
-                <td> {{ $mailinglists->name }} </td>
-
+                <td scope="row">{{ $mailinglist->id }}</td>
+                <td> {{ $mailinglist->name }} </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 
