@@ -94,9 +94,10 @@ class SupportController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supportticket $supportticket)
+    public function destroy($supportticket)
     {
         //
+        $supportticket = Supportticket::findOrFail($supportticket);
         $supportticket->delete();
         return redirect()->route('support.index')->with('message', 'Ticket is succesvol verwijder.');
     }

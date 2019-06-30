@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth\Admin;
 use App\Faq;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreFaqRequest;
 
 class FaqController extends Controller
 {
@@ -37,9 +38,15 @@ class FaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFaqRequest $request)
     {
         //
+        $faq = new Faq();
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+
+        return redirect()->route('faq.index')->with('message', 'Frequestly Asked Question is toegevoegd.');
     }
 
     /**
@@ -59,9 +66,11 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit($faq)
     {
         //
+        $faq = Faq::findOrFail($faq);
+        return view('auth.admin.faq.edit', compact('faq'));
     }
 
     /**
@@ -71,9 +80,15 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(StoreFaqRequest $request, $faq)
     {
         //
+        $faq = Faq::findOrFail($faq);
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+
+        return redirect()->route('faq.index')->with('message', 'Frequently Asked Question is succesvol bewerkt.');
     }
 
     /**
@@ -85,5 +100,7 @@ class FaqController extends Controller
     public function destroy(Faq $faq)
     {
         //
+        $faq->delete();
+        return redirect()->route('faq.index')->with('message', 'Frequently Asked Question is succesvol verwijderd!');
     }
 }
