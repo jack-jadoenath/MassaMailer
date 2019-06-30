@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Mailinglist extends Model
 {
 
+    public $timestamps = false;
+
     protected $fillable = ['name'];
 
     protected $table = 'mailinglists';

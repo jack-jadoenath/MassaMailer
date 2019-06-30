@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;
 
-class StoreMailingRequest extends FormRequest
+class StoreMailinglistRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

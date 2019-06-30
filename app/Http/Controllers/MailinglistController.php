@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Mailinglist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Http\Requests\StoreMailinglistRequest;
 
 class MailinglistController extends Controller
 {
@@ -37,12 +40,13 @@ class MailinglistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMailingRequest $request)
+    public function store(StoreMailinglistRequest $request)
     {
         $validated = $request->validated();
 
         $mailinglist = new Mailinglist();
         $mailinglist->name = $request->name;
+        $mailinglist->users_id = Auth::user()->id;
         $mailinglist->save();
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangemaakt!');
@@ -50,7 +54,14 @@ class MailinglistController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * !!!!!
+     * !!!!
+     * !!!!
+     * HEY GA VERDER MET HIER ALLES BENEDEN!!!
+     * !!!!
+     * !!!!
+     * !!!!!
+     * 
      * @param  \App\Mailinglist  $mailinglist
      * @return \Illuminate\Http\Response
      */
