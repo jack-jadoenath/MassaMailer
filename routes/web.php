@@ -27,7 +27,7 @@ Auth::routes();
 Route::post('admin', ['as' => 'admin.login', 'uses' => 'Auth\AdminloginController@login']);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/mailinglist', 'MailinglistController@index');
+Route::resource('/mailinglist', 'MailinglistController');
 
 Route::resource('/contact', 'SupportticketController');
 Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin')->name('admin');

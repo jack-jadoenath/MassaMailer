@@ -28,7 +28,7 @@ class MailinglistController extends Controller
      */
     public function create()
     {
-        //
+        return view('mailinglist.create');
     }
 
     /**
@@ -37,9 +37,15 @@ class MailinglistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMailingRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $mailinglist = new Mailinglist();
+        $mailinglist->name = $request->name;
+        $mailinglist->save();
+
+        return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangemaakt!');
     }
 
     /**

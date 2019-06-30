@@ -3,7 +3,13 @@
 @section('content')
 
 <div class="md-7">
-    <h1 class="mt-5">Mailing list</h1>
+    <h1 class="mt-5">Mailing lijst</h1>
+
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{session('message')}}
+    </div>
+    @endif
 
     <table class="table">
         <thead class="thead">
@@ -17,6 +23,7 @@
             <tr>
                 <td scope="row">{{ $mailinglist->id }}</td>
                 <td> {{ $mailinglist->name }} </td>
+
             </tr>
             @endforeach
         </tbody>
