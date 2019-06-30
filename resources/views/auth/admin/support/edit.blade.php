@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     @auth
@@ -7,6 +7,7 @@
         @endif
         <div class="card">
             <div class="card-header">
+            
                 {{ $supportticket->question }}
                 @if ($supportticket->status == 0)
                     <a class="btn btn-warning" href="#"><i class="fa fa-bell" ></i></a>

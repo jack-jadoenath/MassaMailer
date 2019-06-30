@@ -62,7 +62,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('contact.index')}}">Contact
                                 </a>
-                                <a class=" dropdown-item" href="#">FAQ
+                                <a class=" dropdown-item" href="{{ route('faq')}}">FAQ
                                 </a>
                             </div>
                         </li>

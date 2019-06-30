@@ -1,5 +1,7 @@
 <?php
 
+use App\Faq;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/faq', function () {
-    return view('faq');
-});
+    $faqs = Faq::all();
+    return view('faq', compact('faqs'));
+})->name('faq');;
 
 Auth::routes();
 
