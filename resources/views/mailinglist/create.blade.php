@@ -23,10 +23,25 @@
         @method('POST')
         @csrf
         <div class="form-group row">
-            <label for="name" class="col-sm-3 col-form-label">Lijst naam</label>
-            <div class="col-sm-9">
+            <label for="name" class="col-sm-2 col-form-label">Lijst naam</label>
+            <div class="col-sm-10">
                 <input name="name" type="text" class="form-control" id="name" placeholder="Lijst naam">
             </div>
+            <label for="email" class="col-sm-1 col-form-label">Email</label>
+            <div class="col-sm-3">
+                <input name="recipient_email" type="text" class="form-control" id="email" placeholder="Email">
+            </div>
+            <label for="email" class="col-sm-1 col-form-label">Voornaam</label>
+            <div class="col-sm-3">
+                <input name="recipient_firstname" type="text" class="form-control" id="firstname"
+                    placeholder="Voornaam">
+            </div>
+            <label for="email" class="col-sm-1 col-form-label">Achternaam</label>
+            <div class="col-sm-3">
+                <input name="recipient_lastname" type="text" class="form-control" id="lastname"
+                    placeholder="Achternaam">
+            </div>
+
         </div>
         <div class="form-group row">
             <div class="offset-sm-3 col-sm-9">

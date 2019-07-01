@@ -12,6 +12,12 @@ class Mailinglist extends Model
     protected $fillable = ['name'];
 
     protected $table = 'mailinglists';
+
+    public function recipient()
+    {
+        return $this->belongstToMany('App\Recipient');
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');

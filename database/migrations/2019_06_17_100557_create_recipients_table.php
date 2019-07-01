@@ -15,7 +15,7 @@ class CreateRecipientsTable extends Migration
     {
         Schema::create('recipients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('firstname');
             $table->string('lastname');
         });

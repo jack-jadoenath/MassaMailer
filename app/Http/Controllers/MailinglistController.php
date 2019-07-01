@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mailinglist;
+use App\Recipient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,8 +46,18 @@ class MailinglistController extends Controller
         $validated = $request->validated();
 
         $mailinglist = new Mailinglist();
+        $recipient = new Recipient();
+
+        $recipient->save();
+
         $mailinglist->name = $request->name;
         $mailinglist->users_id = Auth::user()->id;
+        $mailinglist->recipients_firstname = $recipient->firstname;
+        $mailinglist->recipients_lastname = $recipient->lastname;
+        $mailinglist->recipients_email = $recipient->email;
+
+
+
         $mailinglist->save();
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangemaakt!');
