@@ -15,10 +15,10 @@ class CreateHeadersTable extends Migration
     {
         Schema::create('headers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('size');
-            $table->string('color');
-            $table->integer('fontsize');
-            $table->string('fontcolor');
+            $table->integer('size')->default(100);
+            $table->string('color')->default('#ffffff');
+            $table->integer('fontsize')->default(16);
+            $table->string('fontcolor')->default('#000000');
         });
     }
 
