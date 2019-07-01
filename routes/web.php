@@ -28,9 +28,8 @@ Route::post('admin', ['as' => 'admin.login', 'uses' => 'Auth\AdminloginControlle
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/mailinglist', 'MailinglistController');
-Route::get('/mailinglist/{mailinglist}/delete', 'MailinglistController@delete')
-    ->name('mailinglist.delete');
 Route::resource('/contact', 'SupportticketController');
+Route::resource('/templates', 'TemplateController');
 Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin')->name('admin');
 Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashboard');
 Route::resource('/admin/support', 'Auth\Admin\SupportController');
