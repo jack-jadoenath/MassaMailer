@@ -3,6 +3,15 @@
 @section('content')
 
 <title>Mailinglijst</title>
+<nav class="nav">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/mailinglist/'.$mailinglist->id.'/edit') }}">Pas deze lijst aan</a>
+        </li>
+    </ul>
+</nav>
+
+
 
 <div class="card">
     <div class="card-header">

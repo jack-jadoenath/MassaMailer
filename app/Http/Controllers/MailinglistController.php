@@ -107,6 +107,7 @@ class MailinglistController extends Controller
      */
     public function destroy(Mailinglist $mailinglist)
     {
-        //
+        $mailinglist->delete();
+        return redirect()->route('mailinglist.index')->with('message', 'Mailinglist Verwijdert');
     }
 }
