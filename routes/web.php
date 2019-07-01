@@ -34,3 +34,4 @@ Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin'
 Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashboard');
 Route::resource('/admin/support', 'Auth\Admin\SupportController');
 Route::resource('/admin/faq', 'Auth\Admin\FaqController');
+Route::resource('/admin/packets', 'Auth\Admin\PackageController');
