@@ -7,6 +7,7 @@ use App\Footer;
 use App\Header;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTemplateRequest;
+use App\Http\Requests\UpdateTemplateRequest;
 use Auth;
 
 class TemplateController extends Controller
@@ -77,9 +78,13 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function edit(Template $template)
+    public function edit($template)
     {
         //
+        $template = Template::findOrFail($template);
+        $footer = Footer::findOrFail($template->footers_id);
+        $header = Header::findOrFail($template->headers_id);
+        return view('templates.edit', compact('template', 'footer', 'header'));
     }
 
     /**
@@ -89,9 +94,30 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Template $template)
+    public function update(UpdateTemplateRequest $request, $template)
     {
         //
+        $template = Template::findOrFail($template);
+        $footer = Footer::findOrFail($template->footers_id);
+        $header = Header::findOrFail($template->headers_id);
+        
+        $template->name = $request->name;
+
+        $header->size = $request->header_size;
+        $header->color = $request->header_color;
+        $header->fontsize = $request->header_fontsize;
+        $header->fontcolor = $request->header_fontcolor;
+
+        $footer->size = $request->footer_size;
+        $footer->color = $request->footer_color;
+        $footer->fontsize = $request->footer_fontsize;
+        $footer->fontcolor = $request->footer_fontcolor;
+
+        $template->save();
+        $footer->save();
+        $header->save();
+
+        return redirect()->route('templates.index')->with('message', 'Template is Bijgewerkt.');
     }
 
     /**
@@ -105,26 +131,13 @@ class TemplateController extends Controller
         //
         $template = Template::findOrFail($template);
 
-        if($template->headers_id == 0 && $template->footers_id == 0){
-            // De template heeft nog geen Header of Footer dus deze hoeft ook verwijderd te worden
-            $template->delete();
-        }else if($template->headers_id == 0){
-            // We hebben een Footer
-            $footer = Footer::findOrFail($template->footers_id);
-            $footer->delete();
-            $template->delete();
-        }else if($template->footers_id == 0){
-            // We hebben een Header
-            $header = Header::findOrFail($template->headers_id);
-            $header->delete();
-            $template->delete();
-        }else{
-            // We hebben een Footer en een Header
-            $footer = Footer::findOrFail($template->footers_id);
-            $header = Header::findOrFail($template->headers_id);
-            $header->delete();
-            $footer->delete();
-            $template->delete();
-        }
+        $footer = Footer::findOrFail($template->footers_id);
+        $header = Header::findOrFail($template->headers_id);
+
+        $template->delete();
+        $footer->delete();
+        $header->delete();
+
+        return redirect()->route('templates.index')->with('message', 'Template is verwijderd.');
     }
 }
