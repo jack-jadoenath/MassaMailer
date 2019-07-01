@@ -69,7 +69,7 @@ class MailinglistController extends Controller
     {
         $mailinglist = Mailinglist::findOrFail($mailinglist);
 
-        return view('mailinglist.show', compact('mailinglists'));
+        return view('mailinglist.show', compact('mailinglist'));
     }
 
     /**
