@@ -65,11 +65,11 @@ class MailinglistController extends Controller
      * @param  \App\Mailinglist  $mailinglist
      * @return \Illuminate\Http\Response
      */
-    public function show(Mailinglist $mailinglist)
+    public function show($mailinglist)
     {
         $mailinglist = Mailinglist::findOrFail($mailinglist);
 
-        return view('mailinglist.show', compact('mailinglists'));
+        return view('mailinglist.show', compact('mailinglist'));
     }
 
     /**
@@ -80,7 +80,7 @@ class MailinglistController extends Controller
      */
     public function edit(Mailinglist $mailinglist)
     {
-        //
+        return view('mailinglist.edit', compact('mailinglist'));
     }
 
     /**
@@ -90,9 +90,13 @@ class MailinglistController extends Controller
      * @param  \App\Mailinglist  $mailinglist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mailinglist $mailinglist)
+    public function update(StoreMailinglistRequest $request, Mailinglist $mailinglist)
     {
-        //
+        $mailinglist->name = $request->name;
+
+        $mailinglist->save();
+
+        return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangepast!');
     }
 
     /**
