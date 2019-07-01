@@ -2,6 +2,8 @@
 
 @section('content')
 
+<title>Mailinglijst</title>
+
 <div class="md-7">
     <h1 class="mt-5">Mailing lijst</h1>
 
@@ -16,6 +18,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Naam</th>
+                <th scope="col">Informatie</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +26,8 @@
             <tr>
                 <td scope="row">{{ $mailinglist->id }}</td>
                 <td> {{ $mailinglist->name }} </td>
+                <td><a href="{{ route('mailinglist.show',
+                                        ['mailinglist' => $mailinglist->id]) }}">Info</td>
 
             </tr>
             @endforeach

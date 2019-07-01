@@ -67,7 +67,9 @@ class MailinglistController extends Controller
      */
     public function show(Mailinglist $mailinglist)
     {
-        //
+        $mailinglist = Mailinglist::findOrFail($mailinglist);
+
+        return view('mailinglist.show', compact('mailinglists'));
     }
 
     /**
