@@ -1,7 +1,7 @@
 <?php
 
 use App\Faq;
-
+use App\Package;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +21,11 @@ Route::get('/faq', function () {
     $faqs = Faq::all();
     return view('faq', compact('faqs'));
 })->name('faq');;
+
+Route::get('/packets', function () {
+    $packets = Package::all();
+    return view('packets', compact('packets'));
+})->name('packets');;
 
 Auth::routes();
 

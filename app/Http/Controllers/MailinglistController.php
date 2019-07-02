@@ -47,17 +47,14 @@ class MailinglistController extends Controller
 
         $mailinglist = new Mailinglist();
         $recipient = new Recipient();
-
+        $recipient->firstname = $request->recipients_firstname;
+        $recipient->lastname = $request->recipients_lastname;
+        $recipient->email = $request->recipients_email;
         $recipient->save();
 
         $mailinglist->name = $request->name;
         $mailinglist->users_id = Auth::user()->id;
-        $mailinglist->recipients_firstname = $recipient->firstname;
-        $mailinglist->recipients_lastname = $recipient->lastname;
-        $mailinglist->recipients_email = $recipient->email;
-
-
-
+        
         $mailinglist->save();
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangemaakt!');

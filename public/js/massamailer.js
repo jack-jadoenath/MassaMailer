@@ -13,4 +13,10 @@ var previewFrame = document.getElementById('preview');
 
 function setPreview(){
     console.log("Preview");
+    while (previewFrame.firstChild) {
+        previewFrame.removeChild(previewFrame.firstChild);
+    }
+
+    
+
 }
