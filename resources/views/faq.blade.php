@@ -5,12 +5,11 @@
         @if($faqs != null && count($faqs) > 0)
 
             @foreach($faqs as $faq)
-            <br>
             <div class="card">
-                <div class="card-header">
+                <button class="accordion">
                     {{ $faq->question }}
-                </div>
-                <div class="card-body">{{ $faq->answer }}</div>
+                </button>
+                <div class="panel">{{ $faq->answer }}</div>
             </div>
             @endforeach
 
@@ -23,4 +22,20 @@
             </div>
         @endif
 
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        </script>
 @endsection

@@ -60,3 +60,27 @@ footer{
     padding: 0.75em;
     width: 100%;
 }
+
+.accordion {
+    background-color: #eee;
+    color: #db7f80;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1em;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #eee;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
