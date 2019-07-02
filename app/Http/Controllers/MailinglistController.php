@@ -83,9 +83,11 @@ class MailinglistController extends Controller
     public function show($mailinglist)
     {
         $mailinglist = Mailinglist::findOrFail($mailinglist);
-        $recipient = Recipient::findOrFail($mailinglist->recipients_id);
 
-        return view('mailinglist.show', compact('mailinglist', 'recipient'));
+        //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
+        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->firstOrFail();
+        $recipients = Recipient::where('id', '=', $mailinglistRecipients->recipients_id);
+        return view('mailinglist.show', compact('mailinglist', 'recipients'));
     }
 
     /**
