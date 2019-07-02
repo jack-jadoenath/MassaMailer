@@ -30,6 +30,7 @@ Route::get('/packets', function () {
 Auth::routes();
 
 Route::post('admin', ['as' => 'admin.login', 'uses' => 'Auth\AdminloginController@login']);
+Route::post('packets', ['as' => 'packets.select', 'uses' => 'Auth\Admin\PackageController@select']);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/mailinglist', 'MailinglistController');

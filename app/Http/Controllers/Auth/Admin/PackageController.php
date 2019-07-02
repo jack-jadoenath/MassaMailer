@@ -111,4 +111,8 @@ class PackageController extends Controller
         $package->delete();
         return redirect()->route('packets.index')->with('message', 'Pakket is succesvol verwijderd!');
     }
+
+    public function select(Request $request){
+        return redirect()->route('register')->with('packet', $request->id);
+    }
 }
