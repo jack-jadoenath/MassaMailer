@@ -6,7 +6,6 @@
         @if($tickets != null && count($tickets) > 0)
 
             @foreach($tickets as $ticket)
-            <br>
             <div class="card">
                 <div class="card-header">
                     {{ $ticket->question }}
@@ -17,7 +16,7 @@
                     @endif
                     
                     <a class="btn btn-primary" href="{{ route('support.edit', $ticket) }}"><i class="fa fa-comment" ></i></a>
-                    <form method="POST" action="{{ route('support.destroy', $ticket) }}">
+                    <form method="POST" action="{{ route('support.destroy', $ticket) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
@@ -26,8 +25,8 @@
                 <div class="card-body">{{ $ticket->message }}</div> 
                 <div class="card-footer">{{ $ticket->answer }}</div>
             </div>
+            <br>
             @endforeach
-
         @else
             <br>
             <div class="card">
@@ -36,5 +35,6 @@
                 </div> 
             </div>
         @endif
+
 
 @endsection
