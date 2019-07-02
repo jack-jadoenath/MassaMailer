@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->nullable(); //Is deze gebruiker een admin ja (1) of nee (0)
             //$table->unsignedBigInteger('packages_id');
             //$table->foreign('packages_id')->references('id')->on('packages');
-
+            
             $table->rememberToken();
             $table->timestamps();
         });
