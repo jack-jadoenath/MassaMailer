@@ -20,7 +20,6 @@
         <form method="POST" action="{{ route('support.update', $supportticket) }}">
             @csrf
             {{ method_field('PATCH') }}
-
             <div class="form-group row">
                 <label for="answer" class="col-md-4 col-form-label text-md-right">{{ __('Antwoord') }}</label>
 
