@@ -27,6 +27,7 @@
             <div class="col-sm-10">
                 <input name="name" type="text" class="form-control" id="name" placeholder="Lijst naam">
             </div>
+
             <label for="email" class="col-sm-1 col-form-label">Email</label>
             <div class="col-sm-3">
                 <input name="recipient_email" type="text" class="form-control" id="email" placeholder="Email">

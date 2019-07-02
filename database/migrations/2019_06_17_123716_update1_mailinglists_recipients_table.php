@@ -13,7 +13,7 @@ class Update1MailinglistsRecipientsTable extends Migration
      */
     public function up()
     {
-        Schema::table('mailinglist_recipients', function (Blueprint $table) {
+        Schema::table('mailinglists_recipients', function (Blueprint $table) {
             $table->foreign('mailinglists_id')->references('id')->on('mailinglists');
             $table->foreign('recipients_id')->references('id')->on('recipients');
         });
@@ -26,6 +26,6 @@ class Update1MailinglistsRecipientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mailinglist_recipients');
+        Schema::dropIfExists('mailinglists_recipients');
     }
 }

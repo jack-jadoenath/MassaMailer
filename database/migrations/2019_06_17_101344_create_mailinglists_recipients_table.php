@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMailinglistRecipientsTable extends Migration
+class CreateMailinglistsRecipientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMailinglistRecipientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mailinglist_recipients', function (Blueprint $table) {
+        Schema::create('mailinglists_recipients', function (Blueprint $table) {
             $table->unsignedBigInteger('mailinglists_id');
             //$table->foreign('mailinglists_id')->references('id')->on('mailinglists');
             $table->unsignedBigInteger('recipients_id');
@@ -28,6 +28,6 @@ class CreateMailinglistRecipientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mailinglist_recipients');
+        Schema::dropIfExists('mailinglists_recipients');
     }
 }
