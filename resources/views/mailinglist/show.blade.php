@@ -19,7 +19,13 @@
     </div>
     <div class="card-body">
         <h2 class="class-title">{{ $mailinglist->name }}</h2>
-        <p class="card-text">Array met recipients</p>
+        @foreach($recipients as $recipient)
+        <p class="card-text">{{ $recipient->email }}</p>
+        <p class="card-text">{{ $recipient->firstname }}</p>
+        <p class="card-text">{{ $recipient->lastname }}</p>
+
+        @endforeach
+
     </div>
 
 </div>

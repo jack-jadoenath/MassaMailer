@@ -57,7 +57,7 @@ class MailinglistController extends Controller
 
         $mailinglist->name = $request->name;
         $mailinglist->users_id = Auth::user()->id;
-        
+
         $mailinglist->save();
 
         $mailinglistRecipient->mailinglists_id = $mailinglist->id;
@@ -83,8 +83,9 @@ class MailinglistController extends Controller
     public function show($mailinglist)
     {
         $mailinglist = Mailinglist::findOrFail($mailinglist);
+        $recipient = Recipient::findOrFail($mailinglist->recipients_id);
 
-        return view('mailinglist.show', compact('mailinglist'));
+        return view('mailinglist.show', compact('mailinglist', 'recipient'));
     }
 
     /**
