@@ -36,9 +36,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pakketten</a>
+                            <a class="nav-link" href="{{ route('packets')}}">Pakketten</a>
                         </li>
+                        @endguest
                         @auth
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -48,7 +50,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Berichten
                                 </a>
-                                <a class=" dropdown-item" href="#">Templates
+                                <a class=" dropdown-item" href="{{ route('templates.index')}}">Templates
                                 </a>
                                 <a class=" dropdown-item" href="#">Lijsten
                                 </a>

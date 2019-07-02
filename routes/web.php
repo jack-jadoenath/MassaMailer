@@ -25,7 +25,7 @@ Route::get('/faq', function () {
 Route::get('/packets', function () {
     $packets = Package::all();
     return view('packets', compact('packets'));
-})->name('packets');;
+})->middleware('guest')->name('packets');;
 
 Auth::routes();
 
