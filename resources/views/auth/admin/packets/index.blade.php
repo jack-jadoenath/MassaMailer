@@ -89,7 +89,7 @@
             </div>
             <div class="col-md-6">
                 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis interdum libero. Suspendisse tincidunt metus volutpat, convallis arcu non, volutpat quam. Sed nunc ante, sagittis nec dui quis, sodales semper quam. Morbi cursus turpis ut purus sollicitudin, ut facilisis turpis auctor. Nullam varius tortor nibh, non gravida dui iaculis egestas. Cras at suscipit massa. Sed sed feugiat neque, nec laoreet massa. Vivamus hendrerit eu tellus quis feugiat. Donec at ipsum mauris. Sed a tincidunt ex. Vestibulum sodales vel magna vitae laoreet.
+                Op deze pagina kunnen nieuwe pakketten toegevoegd worden en bestaande verwijderd. De hoeveelheid mailinglists, emails, en templates en de prijs worden hierzo ingevuld.
             </div>
         </div>
 
@@ -102,7 +102,7 @@
                 <div class="card-header">
                     {{ $packet->name }}
                     <a class="btn btn-primary" href="{{ route('packets.edit', $packet) }}"><i class="fa fa-pencil" ></i></a>
-                    <form method="POST" action="{{ route('packets.destroy', $packet) }}">
+                    <form method="POST" action="{{ route('packets.destroy', $packet) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash" ></i></button>

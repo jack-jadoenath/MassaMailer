@@ -89,8 +89,8 @@
                 </form>
             </div>
             <div class="col-md-6">
-                
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis interdum libero. Suspendisse tincidunt metus volutpat, convallis arcu non, volutpat quam. Sed nunc ante, sagittis nec dui quis, sodales semper quam. Morbi cursus turpis ut purus sollicitudin, ut facilisis turpis auctor. Nullam varius tortor nibh, non gravida dui iaculis egestas. Cras at suscipit massa. Sed sed feugiat neque, nec laoreet massa. Vivamus hendrerit eu tellus quis feugiat. Donec at ipsum mauris. Sed a tincidunt ex. Vestibulum sodales vel magna vitae laoreet.
+
+                Op deze pagina kunnen bestaande pakketten gewijzigd worden. De hoeveelheid mailinglists, emails, en templates en de prijs worden hierzo ingevuld.
             </div>
         </div>
 
