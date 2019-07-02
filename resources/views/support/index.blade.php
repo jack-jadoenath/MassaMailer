@@ -5,7 +5,7 @@
         CONTACTINFO
     @endguest
     @auth
-        <div class="col-md-6" >
+        <div class="col-md-12" >
         @if(session('message'))
             {{ session('message') }}
         @endif
@@ -56,17 +56,25 @@
             <div class="card-header">
                 {{ $supportticket->question }}
                 <a class="btn btn-primary" href="{{ route('contact.edit', $supportticket) }}"><i class="fa fa-pencil" ></i></a>
-                <form method="POST" action="{{ route('contact.destroy', $supportticket) }}">
-                    {{ method_field('DELETE') }}
-                    @csrf
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-minus-circle" ></i></button>
-                </form>
+                @if ($supportticket->status == 0)
+                    <form method="POST" action="{{ route('contact.destroy', $supportticket) }}" class="delete">
+                        {{ method_field('DELETE') }}
+                        @csrf
+                        <button type="submit" class="btn btn-primary red"><i class="fa fa-minus-circle" ></i></button>
+                    </form>
+                @elseif ($supportticket->status == 1)
+                    <form method="POST" action="{{ route('contact.destroy', $supportticket) }}" class="delete">
+                        {{ method_field('DELETE') }}
+                        @csrf
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-minus-circle" ></i></button>
+                    </form>
+                @endif
             </div>
             <div class="card-body">{{ $supportticket->message }}</div> 
             <div class="card-footer">{{ $supportticket->answer }}</div>
         </div>
         @endforeach
-
+        <br>
         </div>
     @endauth
 @endsection

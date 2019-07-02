@@ -84,3 +84,11 @@ footer{
     background-color: white;
     overflow: hidden;
 }
+
+.delete{
+    float: right;
+}
+
+.red {
+    background-color: red;
+}
