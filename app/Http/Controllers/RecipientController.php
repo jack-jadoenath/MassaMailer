@@ -35,7 +35,14 @@ class RecipientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $recipient = new Recipient();
+
+        $recipient->firstname = $request->firstname;
+        $recipient->firstname = $request->firstname;
+        $recipient->lastname = $request->lastname;
+
+
+        $recipient->save();
     }
 
     /**
