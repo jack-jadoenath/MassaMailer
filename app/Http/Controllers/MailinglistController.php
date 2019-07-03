@@ -86,7 +86,10 @@ class MailinglistController extends Controller
 
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
         $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->firstOrFail();
+        $recipients = Recipient::where('id', '=', $mailinglistRecipients->recipients_id)->firstOrFail();
         $recipients = Recipient::where('id', '=', $mailinglistRecipients->recipients_id);
+
+
         return view('mailinglist.show', compact('mailinglist', 'recipients'));
     }
 
@@ -126,6 +129,7 @@ class MailinglistController extends Controller
     public function destroy(Mailinglist $mailinglist)
     {
         $mailinglist->delete();
+
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglist Verwijdert');
     }
 }

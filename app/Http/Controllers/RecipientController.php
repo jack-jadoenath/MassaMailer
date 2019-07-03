@@ -53,6 +53,7 @@ class RecipientController extends Controller
      */
     public function show(Recipient $recipient)
     {
+
         //$recipient = Mailinglist::findOrFail($recipient);
 
         //return view('mailinglist.show', compact('mailinglist'));
