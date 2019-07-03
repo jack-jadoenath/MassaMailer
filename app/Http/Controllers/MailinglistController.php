@@ -47,22 +47,11 @@ class MailinglistController extends Controller
         $validated = $request->validated();
 
         $mailinglist = new Mailinglist();
-        //$recipient = new Recipient();
-        //$mailinglistRecipient = new MailinglistRecipients();
-
-        //$recipient->firstname = $request->recipients_firstname;
-        //$recipient->lastname = $request->recipients_lastname;
-        //$recipient->email = $request->recipients_email;
-        //$recipient->save();
 
         $mailinglist->name = $request->name;
         $mailinglist->users_id = Auth::user()->id;
 
         $mailinglist->save();
-
-        //$mailinglistRecipient->mailinglists_id = $mailinglist->id;
-        //$mailinglistRecipient->recipients_id = $recipient->id;
-        //$mailinglistRecipient->save();
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangemaakt!');
     }
@@ -132,20 +121,15 @@ class MailinglistController extends Controller
     public function destroy(Mailinglist $mailinglist)
     {
 
-        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->mailinglists_id)->get();
+        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
 
-        $mailinglist->delete();
         foreach ($mailinglistRecipients as $mailinglistRecipient) {
-
             $recipient = Recipient::findOrFail($mailinglistRecipient->recipients_id);
             $recipient->delete();
-            $mailinglistRecipient->delete();
         }
 
-
-
-
-
+        $mailinglist->delete();
+        
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglist Verwijdert');
     }
 }

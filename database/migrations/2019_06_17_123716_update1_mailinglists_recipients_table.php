@@ -14,8 +14,8 @@ class Update1MailinglistsRecipientsTable extends Migration
     public function up()
     {
         Schema::table('mailinglist_recipients', function (Blueprint $table) {
-            $table->foreign('mailinglists_id')->references('id')->on('mailinglists');
-            $table->foreign('recipients_id')->references('id')->on('recipients');
+            $table->foreign('mailinglists_id')->references('id')->on('mailinglists')->onDelete('cascade');;
+            $table->foreign('recipients_id')->references('id')->on('recipients')->onDelete('cascade');;
         });
     }
 
