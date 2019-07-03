@@ -15,14 +15,13 @@
 
 <div class="card">
     <div class="card-header">
-        Mailinglijst
+        Mailinglijst <h2 class="class-title">{{ $mailinglist->name }}</h2>
     </div>
     <div class="card-body">
-        <h2 class="class-title">{{ $mailinglist->name }}</h2>
+
         @foreach($recipients as $recipient)
-        <p class="card-text">{{ $recipient->email }}</p>
-        <p class="card-text">{{ $recipient->firstname }}</p>
-        <p class="card-text">{{ $recipient->lastname }}</p>
+        <h3 class="card-text">{{ $recipient->email }} </h3>
+        <span class="card-text">{{ $recipient->firstname }} {{ $recipient->lastname }}</span>
 
         @endforeach
 
