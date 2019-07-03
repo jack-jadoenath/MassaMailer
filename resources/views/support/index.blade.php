@@ -2,7 +2,16 @@
 
 @section('content')
     @guest
-        CONTACTINFO
+        <div class="row">
+            <div class="col-md-6">
+                Massa Mailer maakt gebruik van een interne support programma. Om hiervan gebruik te maken is een account noodzakelijk. Alternatief is een mail sturen ook mogelijk, echter kan het zijn dat de reactie tijd hierbij wat langer duurt.
+            </div>
+            <div class="col-md-6">
+                SUPPORT MAIL
+                <br>
+                support@massamailer.com
+            </div>
+        </div>
     @endguest
     @auth
         <div class="col-md-12" >
