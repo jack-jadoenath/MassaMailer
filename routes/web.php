@@ -40,6 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/mailinglist', 'MailinglistController');
 Route::resource('/contact', 'SupportticketController');
 Route::resource('/templates', 'TemplateController');
+Route::resource('/mail', 'MailController');
 Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin')->name('admin');
 Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashboard');
 Route::resource('/admin/support', 'Auth\Admin\SupportController');

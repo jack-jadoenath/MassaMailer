@@ -14,7 +14,7 @@ class MailController extends Controller
      */
     public function index()
     {
-        //
+        return view('mail.index', compact('mail'));
     }
 
     /**
@@ -24,7 +24,8 @@ class MailController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('mail.index');
     }
 
     /**
@@ -35,7 +36,14 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mail = new Mail();
+
+        $mail->name = $request->name;
+        $mail->message = $request->message;
+        $mail->users_id = Auth::user()->id;
+        $mail->templates_id =
+            $mail->save();
+        return redirect()->route('mail.index')->with('message', 'Bericht opgestuurd naar uw ontvangers!');
     }
 
     /**
