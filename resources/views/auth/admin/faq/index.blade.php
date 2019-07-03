@@ -53,8 +53,8 @@
             <div class="card">
                 <div class="card-header">
                     {{ $faq->question }}
-                    <a class="btn btn-primary" href="{{ route('faq.edit', $faq) }}"><i class="fa fa-pencil" ></i></a>
-                    <form method="POST" action="{{ route('faq.destroy', $faq) }}">
+                    <a class="btn btn-primary right" href="{{ route('faq.edit', $faq) }}"><i class="fa fa-pencil" ></i></a>
+                    <form method="POST" action="{{ route('faq.destroy', $faq) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
