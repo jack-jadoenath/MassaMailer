@@ -30,10 +30,6 @@ class StoreMailinglistRequest extends FormRequest
     {
         return [
             'name' => 'required|max:20',
-            'email' => 'required',
-            'firstname' => 'required',
-            'lastname' => 'required'
-
         ];
     }
 }

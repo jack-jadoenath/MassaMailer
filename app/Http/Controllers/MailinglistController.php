@@ -120,11 +120,6 @@ class MailinglistController extends Controller
         $mailinglist->name = $request->name;
         $mailinglist->save();
 
-        $recipient->email = $request->email;
-        $recipient->firstname = $request->firstname;
-
-
-
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangepast!');
     }
 
@@ -136,7 +131,20 @@ class MailinglistController extends Controller
      */
     public function destroy(Mailinglist $mailinglist)
     {
+
+        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->mailinglists_id)->get();
+
         $mailinglist->delete();
+        foreach ($mailinglistRecipients as $mailinglistRecipient) {
+
+            $recipient = Recipient::findOrFail($mailinglistRecipient->recipients_id);
+            $recipient->delete();
+            $mailinglistRecipient->delete();
+        }
+
+
+
+
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglist Verwijdert');
     }

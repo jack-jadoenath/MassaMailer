@@ -20,9 +20,11 @@
     <div class="card-body">
 
         @foreach($recipients as $recipient)
-        <h3 class="card-text">{{ $recipient->email }} </h3>
-        <span class="card-text">{{ $recipient->firstname }} {{ $recipient->lastname }}</span>
 
+        <ul class="card-text">{{ $recipient->email }}
+            <li class="card-text">{{ $recipient->firstname }}</li>
+            <li class="card-text">{{ $recipient->lastname }}</li>
+        </ul>
         @endforeach
 
     </div>
