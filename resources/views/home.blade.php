@@ -44,8 +44,7 @@
             In de breedste zin kan elke e-mail die is gestuurd naar een potentiële of huidige klant worden beschouwd als e-mailmarketing, maar deze term wordt normaal gebruikt om te verwijzen naar:
             <li>Het sturen van e-mails met als doel het verbeteren van de relatie van een onderneming met zijn huidige of oude klanten en om klantloyaliteit en herhaal aankopen te vergroten.</li>
             <li>Het sturen van e-mails met als doel om nieuwe klanten te werven of om oude klanten te overtuigen iets onmiddellijk te kopen.</li>
-            <li>Toevoegen van reclame in e-mails die door andere bedrijven naar hun klanten worden gestuurd.</li><br>
-        Onderzoekers schatten dat Amerikaanse bedrijven meer dan 1.51 miljard dollar uitgeven aan e-mailmarketing in 2011 en dat dit zal groeien tot $2.468 miljard in 2016.
+            <li>Toevoegen van reclame in e-mails die door andere bedrijven naar hun klanten worden gestuurd.</li>
         </p>
     </div>
 </div>
@@ -69,7 +68,7 @@
                     <p>Email Templates:  {{ $packet->limittemplates }}</p>
                     <p>Prijs:  {{ $packet->price }}</p>
                     <input hidden type="number" id="id" name="id" value="{{ $packet->id }}" />
-                    <button type="submit" class="btn btn-primary">Kies Pakket</button>
+                    <button type="submit" class="btn btn-primary center_element">Kies Pakket</button>
                 </div>
             </div>
             </div>

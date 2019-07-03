@@ -2,6 +2,12 @@
 
 @section('content')
 
+        <div class="row">
+            <div class="col-md-12">
+                Welkom op de FAQ pagina. Hier zijn de veel gestelde vragen te zien.
+            </div>
+        </div>
+
         @if($faqs != null && count($faqs) > 0)
 
             @foreach($faqs as $faq)

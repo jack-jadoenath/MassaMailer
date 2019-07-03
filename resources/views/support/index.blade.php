@@ -5,11 +5,21 @@
         <div class="row">
             <div class="col-md-6">
                 Massa Mailer maakt gebruik van een interne support programma. Om hiervan gebruik te maken is een account noodzakelijk. Alternatief is een mail sturen ook mogelijk, echter kan het zijn dat de reactie tijd hierbij wat langer duurt.
-            </div>
-            <div class="col-md-6">
-                SUPPORT MAIL
+                Mocht een vraag veel spoed hebben is het ook mogelijk om de support te bellen. Of een brief sturen is ook mogelijk.
                 <br>
-                support@massamailer.com
+                Het is ook mogelijk dat een vraag al vaker gesteld is dus voordat er contact opgenomen wordt raden wij aan om de FAQ (frequently asked questions) pagina te bekijken of de vraag daar niet al in staat.
+            </div>
+            <div class="col-md-5 offset-md-1">
+                <img class="feature-image office" src="{{asset('img/office.jpg')}}" />
+                <br>
+                SUPPORT
+                <br>
+                Karen Turner
+
+                <li>support@massamailer.com</li>
+                <li>06735586378</li>
+                <li>4587 DK, Earnewald, The Netherlands</li>
+
             </div>
         </div>
     @endguest
@@ -21,7 +31,14 @@
 
         <form method="POST" action="{{ route('contact.index') }}">
             @csrf
-
+            <div class="row">
+                <div class="col-md-12">
+                    Welkom op de support pagina.
+                    Stel de vraag en aanduiding hieronder en ons team komt er zo snel mogelijk op terug.
+                </div>
+            </div>
+            <div class="row filler">
+            </div>
             <div class="form-group row">
                 <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Vraag') }}</label>
 

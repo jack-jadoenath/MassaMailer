@@ -112,3 +112,8 @@ iframe {
 .template_button {
     color: white;
 }
+
+.office {
+    height: 40%;
+    width: auto;
+}
