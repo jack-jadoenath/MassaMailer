@@ -17,8 +17,8 @@
             </div>
         </div>
     @endif
-    <div class="row dashboard_row" style="cursor: pointer;" onclick="window.location='{{ url('/admin/user') }}';">
-        <div class="col-md-5 dashboard_div">
+    <div class="row dashboard_row">
+        <div class="col-md-5 dashboard_div" style="cursor: pointer;" onclick="window.location='{{ url('/admin/user') }}';">
             <div class="dashboard_icon_div">
                 <p class="dashboard_icon">U</p>
             </div>
