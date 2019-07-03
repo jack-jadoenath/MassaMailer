@@ -29,7 +29,11 @@ class StoreMailinglistRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20'
+            'name' => 'required|max:20',
+            'email' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required'
+
         ];
     }
 }

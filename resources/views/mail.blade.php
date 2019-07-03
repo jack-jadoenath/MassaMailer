@@ -9,3 +9,8 @@
             @csrf
 
             Mail opstellen
+        </form>
+    </div>
+</div>
+
+@endsection

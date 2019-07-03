@@ -69,13 +69,6 @@ class MailinglistController extends Controller
 
     /**
      * Display the specified resource.
-     * !!!!!
-     * !!!!
-     * !!!!
-     * HEY GA VERDER MET HIER ALLES BENEDEN!!!
-     * !!!!
-     * !!!!
-     * !!!!!
      * 
      * @param  \App\Mailinglist  $mailinglist
      * @return \Illuminate\Http\Response
@@ -86,12 +79,10 @@ class MailinglistController extends Controller
 
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
         $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
-
-        
-        foreach($mailinglistRecipients as $mailinglistRecipient){
+        foreach ($mailinglistRecipients as $mailinglistRecipient) {
             $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
         }
-        
+
         return view('mailinglist.show', compact('mailinglist', 'recipients'));
     }
 
@@ -101,9 +92,20 @@ class MailinglistController extends Controller
      * @param  \App\Mailinglist  $mailinglist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mailinglist $mailinglist)
+    public function edit($mailinglist)
     {
-        return view('mailinglist.edit', compact('mailinglist'));
+        $mailinglist = Mailinglist::findOrFail($mailinglist);
+
+        //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
+        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
+        foreach ($mailinglistRecipients as $mailinglistRecipient) {
+            $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
+        }
+
+
+
+
+        return view('mailinglist.edit', compact('mailinglist', 'recipients'));
     }
 
     /**
@@ -116,8 +118,12 @@ class MailinglistController extends Controller
     public function update(StoreMailinglistRequest $request, Mailinglist $mailinglist)
     {
         $mailinglist->name = $request->name;
-
         $mailinglist->save();
+
+        $recipient->email = $request->email;
+        $recipient->firstname = $request->firstname;
+
+
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangepast!');
     }
