@@ -21,7 +21,7 @@
                     <p>Email Templates:  {{ $packet->limittemplates }}</p>
                     <p>Prijs:  {{ $packet->price }}</p>
                     <input hidden type="number" id="id" name="id" value="{{ $packet->id }}" />
-                    <button type="submit" class="btn btn-primary">Kies Pakket</button>
+                    <button type="submit" class="btn btn-primary center_element">Kies Pakket</button>
                 </div>
             </div>
             </div>
