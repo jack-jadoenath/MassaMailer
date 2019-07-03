@@ -9,7 +9,6 @@
             @foreach($packets as $packet)
             <form method="POST" action="{{ route('packets.select', $packet) }}" class="col-md-4" >
             @csrf
-            <br>
             <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -25,9 +24,9 @@
                 </div>
             </div>
             </div>
+            <br>
             </form>
             @endforeach
-            
             </div>
         @else
             <br>
