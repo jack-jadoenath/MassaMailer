@@ -101,11 +101,11 @@ footer{
     right: 5px;
 }
 
-div.dashboard_div_text a {
+div.dashboard_div_text p {
     color: black;
 }
 
-div.dashboard_icon_div a {
+div.dashboard_icon_div p {
     color: #fff;
 }
 

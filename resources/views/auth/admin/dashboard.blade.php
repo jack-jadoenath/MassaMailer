@@ -17,41 +17,41 @@
             </div>
         </div>
     @endif
-    <div class="row dashboard_row">
+    <div class="row dashboard_row" style="cursor: pointer;" onclick="window.location='{{ url('/admin/user') }}';">
         <div class="col-md-5 dashboard_div">
             <div class="dashboard_icon_div">
-                <a href="#" class="dashboard_icon">U</a>
+                <p class="dashboard_icon">U</p>
             </div>
             <div class="dashboard_div_text">
-                <a href="#">User beheer</a>
+                <p>User beheer</p>
             </div>
         </div>
 
-        <div class="col-md-5 dashboard_div offset-md-2">
+        <div class="col-md-5 dashboard_div offset-md-2" style="cursor: pointer;" onclick="window.location='{{ url('/admin/packets') }}';">
             <div class="dashboard_icon_div">
-                <a href="{{ url('/admin/packets') }}" class="dashboard_icon">P</a>
+                <p class="dashboard_icon">P</p>
             </div>
             <div class="dashboard_div_text">
-                <a href="{{ url('/admin/packets') }}">Pakketten beheer</a>
+                <p>Pakketten beheer</p>
             </div>
         </div>
     </div>
     <div class="row dashboard_row">
-        <div class="col-md-5 dashboard_div">
+        <div class="col-md-5 dashboard_div" style="cursor: pointer;" onclick="window.location='{{ url('/admin/support') }}';">
             <div class="dashboard_icon_div">
-                <a href="{{ url('/admin/support') }}" class="dashboard_icon">S</a>
+                <p class="dashboard_icon">S</p>
             </div>
             <div class="dashboard_div_text">
-                <a href="{{ url('/admin/support') }}">Support interface</a>
+                <p>Support interface</p>
             </div>
         </div>
 
-        <div class="col-md-5 dashboard_div offset-md-2">
+        <div class="col-md-5 dashboard_div offset-md-2" style="cursor: pointer;" onclick="window.location='{{ url('/admin/faq') }}';">
             <div class="dashboard_icon_div">
-                <a href="{{ url('/admin/faq') }}" class="dashboard_icon">F</a>
+                <p class="dashboard_icon">F</p>
             </div>
             <div class="dashboard_div_text">
-                <a href="{{ url('/admin/faq') }}">FAQ beheer</a>
+                <p>FAQ beheer</p>
             </div>
         </div>
     </div>
