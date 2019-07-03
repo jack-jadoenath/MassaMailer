@@ -101,7 +101,7 @@
             <div class="card">
                 <div class="card-header">
                     {{ $packet->name }}
-                    <a class="btn btn-primary" href="{{ route('packets.edit', $packet) }}"><i class="fa fa-pencil" ></i></a>
+                    <a class="btn btn-primary right" href="{{ route('packets.edit', $packet) }}"><i class="fa fa-pencil" ></i></a>
                     <form method="POST" action="{{ route('packets.destroy', $packet) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
