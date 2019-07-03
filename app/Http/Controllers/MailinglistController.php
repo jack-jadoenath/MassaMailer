@@ -85,11 +85,13 @@ class MailinglistController extends Controller
         $mailinglist = Mailinglist::findOrFail($mailinglist);
 
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
-        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->firstOrFail();
-        $recipients = Recipient::where('id', '=', $mailinglistRecipients->recipients_id)->firstOrFail();
-        $recipients = Recipient::where('id', '=', $mailinglistRecipients->recipients_id);
+        $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
 
-
+        
+        foreach($mailinglistRecipients as $mailinglistRecipient){
+            $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
+        }
+        
         return view('mailinglist.show', compact('mailinglist', 'recipients'));
     }
 

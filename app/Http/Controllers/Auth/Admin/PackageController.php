@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth\Admin;
 use App\Package;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 use App\Http\Requests\StorePackageRequest;
 
@@ -113,6 +114,9 @@ class PackageController extends Controller
     }
 
     public function select(Request $request){
+        if(Auth::check()){
+            return redirect()->route('account.index')->with('message', 'Pakket is succesvol geselecteerd!');
+        }
         return redirect()->route('register')->with('packet', $request->id);
     }
 }

@@ -14,7 +14,8 @@ use App\Package;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $packets = Package::all();
+    return view('home', compact('packets'));
 });
 
 Route::get('/faq', function () {
