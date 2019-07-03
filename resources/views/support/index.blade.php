@@ -56,8 +56,8 @@
             <div class="card-header">
             @if ($supportticket->status == 0)
                 {{ $supportticket->question }}
-                <a class="btn btn-primary" href="{{ route('contact.edit', $supportticket) }}"><i class="fa fa-pencil" ></i></a>
-                    <form method="POST" action="{{ route('contact.destroy', $supportticket) }}" class="delete">
+                <a class="btn btn-primary right" href="{{ route('contact.edit', $supportticket) }}"><i class="fa fa-pencil" ></i></a>
+                    <form method="POST" action="{{ route('contact.destroy', $supportticket) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
                         <button type="submit" class="btn btn-primary red"><i class="fa fa-minus-circle" ></i></button>

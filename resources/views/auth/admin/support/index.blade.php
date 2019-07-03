@@ -14,8 +14,7 @@
                     @else
                         <a class="btn btn-success" href="#"><i class="fa fa-bell" ></i></a>
                     @endif
-                    
-                    <a class="btn btn-primary" href="{{ route('support.edit', $ticket) }}"><i class="fa fa-comment" ></i></a>
+                    <a class="btn btn-primary right" href="{{ route('support.edit', $ticket) }}"><i class="fa fa-comment"></i></a>
                     <form method="POST" action="{{ route('support.destroy', $ticket) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
