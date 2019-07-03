@@ -141,24 +141,32 @@
                     </div>
 
                     <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
+                        <div class="col-md-8 offset-md-4 template_button">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Opslaan') }}
                             </button>
-                            <a  onclick="setPreview();return false;" class="btn btn-primary">Voorbeel Updaten</a>
+                            <a onclick="setPreview();return false;" class="btn btn-primary">Voorbeeld Updaten</a>
                         </div>
                     </div>
+                    <br>
                 </form>
             </div>
-            <iframe id="preview" class="col-md-6" >
+            <iframe id="preview" class="col-md-6">
 
             </iframe>
         </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="filler">
+`
+            </div>
+        </div>
+    </div>
 
 @endsection
 
 @section('js')
 
-<script src="{{asset('js/massamailer.js')}}"></script>
+<script onload="setPreview();return false;" src="{{asset('js/massamailer.js')}}"></script>
 
 @endsection

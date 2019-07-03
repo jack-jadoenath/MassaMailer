@@ -98,3 +98,17 @@ footer{
     margin-left: 30%;
     margin-right: 30%;
 }
+
+iframe {
+    background-color: white;
+    width: 100%;
+    height: auto;
+}
+
+.filler {
+    height: 20px;
+}
+
+.template_button {
+    color: white;
+}
