@@ -117,3 +117,7 @@ iframe {
     height: 40%;
     width: auto;
 }
+
+.left {
+    float: left;
+}

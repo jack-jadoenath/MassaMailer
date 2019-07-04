@@ -31,16 +31,10 @@
 
         <form method="POST" action="{{ route('contact.index') }}">
             @csrf
-            <div class="row">
-                <div class="col-md-12">
-                    Welkom op de support pagina.
-                    Stel de vraag en aanduiding hieronder en ons team komt er zo snel mogelijk op terug.
-                </div>
-            </div>
             <div class="row filler">
             </div>
             <div class="form-group row">
-                <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Vraag') }}</label>
+                <label for="question" class="col-md-2 col-form-label text-md-right">{{ __('Vraag') }}</label>
 
                 <div class="col-md-6">
                     <input id="question" type="text" class="form-control @error('question') is-invalid @enderror" name="question" value="{{ old('question') }}" required autocomplete="question">
@@ -51,10 +45,13 @@
                         </span>
                     @enderror
                 </div>
+                <div class="col-md-4">
+                    Welkom op de support pagina.
+                </div>
             </div>
 
             <div class="form-group row">
-                <label for="message" class="col-md-4 col-form-label text-md-right">{{ __('Bericht') }}</label>
+                <label for="message" class="col-md-2 col-form-label text-md-right">{{ __('Bericht') }}</label>
 
                 <div class="col-md-6">
                     <textarea id="message" type="text" class="form-control @error('message') is-invalid @enderror" name="message" value="{{ old('bericht') }}" required autocomplete="message"></textarea>
@@ -65,11 +62,14 @@
                         </span>
                     @enderror
                 </div>
+                <div class="col-md-4">
+                    Stel de vraag en aanduiding hier naast en ons team komt er zo snel mogelijk op terug.
+                </div>
             </div>
 
             <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
+                <div class="col-md-8 offset-md-4 left">
+                    <button type="submit" class="btn btn-primary left">
                         {{ __('Verstuur') }}
                     </button>
                 </div>
