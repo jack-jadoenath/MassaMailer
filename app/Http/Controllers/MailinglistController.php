@@ -68,10 +68,11 @@ class MailinglistController extends Controller
 
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
         $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
-        foreach ($mailinglistRecipients as $mailinglistRecipient) {
-            $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
-        }
-
+            
+            foreach ($mailinglistRecipients as $mailinglistRecipient) {
+                $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
+            }
+        
         return view('mailinglist.show', compact('mailinglist', 'recipients'));
     }
 
@@ -129,7 +130,7 @@ class MailinglistController extends Controller
         }
 
         $mailinglist->delete();
-        
+
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglist Verwijdert');
     }
 }

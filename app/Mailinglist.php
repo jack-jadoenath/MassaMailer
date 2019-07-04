@@ -15,7 +15,7 @@ class Mailinglist extends Model
 
     public function recipient()
     {
-        return $this->belongsToMany('App\Recipient', 'mailinglists_recipients', 'recipients_id', 'mailinglists_id');
+        return $this->belongsToMany('App\Recipient', 'mailinglist_recipients', 'recipients_id', 'mailinglists_id');
     }
 
     public function user()
