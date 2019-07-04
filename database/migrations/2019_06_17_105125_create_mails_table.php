@@ -17,6 +17,7 @@ class CreateMailsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('message');
+            $table->dateTime('send_at')->nullable();
             #$table->unsignedBigInteger('users_id');
             #$table->foreign('users_id')->references('id')->on('users');
             #$table->unsignedBigInteger('templates_id');

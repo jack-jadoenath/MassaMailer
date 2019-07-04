@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Mail;
+use App\Template;
+use Auth;
 use Illuminate\Http\Request;
+use App\Mailinglist;
 
 class MailController extends Controller
 {
@@ -14,7 +17,10 @@ class MailController extends Controller
      */
     public function index()
     {
-        return view('mail.index', compact('mail'));
+
+        $mails = Mail::all();
+
+        return view('mail.index', compact('mail', 'templates', 'mailinglists'));
     }
 
     /**
@@ -24,8 +30,9 @@ class MailController extends Controller
      */
     public function create()
     {
-
-        return view('mail.index');
+        $templates = Template::where('users_id', '=', Auth::id())->get();
+        $mailinglists = Mailinglist::where('users_id', '=', Auth::id())->get();
+        return view('mail.create', compact('mail', 'templates', 'mailinglists'));
     }
 
     /**
@@ -41,8 +48,8 @@ class MailController extends Controller
         $mail->name = $request->name;
         $mail->message = $request->message;
         $mail->users_id = Auth::user()->id;
-        $mail->templates_id =
-            $mail->save();
+        $mail->templates_id = $request->templates;
+        $mail->save();
         return redirect()->route('mail.index')->with('message', 'Bericht opgestuurd naar uw ontvangers!');
     }
 

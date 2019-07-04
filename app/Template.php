@@ -8,4 +8,9 @@ class Template extends Model
 {
     //
     public $timestamps = false;
+
+    public function mail()
+    {
+        $this->belongsTo('App\Mail');
+    }
 }
