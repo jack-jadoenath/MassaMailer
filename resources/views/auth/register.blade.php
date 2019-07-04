@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-                {{ session('packet') }}
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -68,6 +68,65 @@
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="phone">Telefoon:</label>
+                            <div class="col-md-6"><input required class="form-control" id="phone" name="phone" type="text" value="{{ old('phone') }}" /></div>
+                            @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="card_last_four">Creditcard Nummer:</label>
+                            <div class="col-md-6"><input required class="form-control" id="card_last_four" name="card_last_four" type="number" value="{{ old('card_last_four') }}"  /></div>
+                            @error('card_last_four')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="card_valid">Geldig tot (mm/yy):</label>
+                            <div class="col-md-6"><input required class="form-control" id="card_valid" name="card_valid" type="text" value="{{ old('card_valid') }}"  /></div>
+                            @error('card_valid')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="card_ccv">CCV Code:</label>
+                            <div class="col-md-6"><input required class="form-control" id="card_ccv" name="card_ccv" type="number" min="0" max="999" value="{{ old('card_ccv') }}"  /></div>
+                            @error('card_ccv')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="packet">Pakketen:</label>
+                            <div class="col-md-6"><div class="row">
+                            @foreach($packets as $packet)
+                                <div class="col-md-4" >
+                                <input type="radio" id="packet" name="packet" @if(session('packet') == $packet->id) checked="checked"  @endif value="{{ $packet->id }}" />
+                                            {{ $packet->name }}
+                                           
+                                </div>
+                            @endforeach
+                            </div></div>
+                            @error('packet')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -4,7 +4,9 @@
    
 <div class="row">
             <div class="col-md-6" >
-
+            @if(session('message'))
+                {{ session('message') }}
+            @endif
                 <form method="POST" action="{{ route('templates.index') }}">
                     @csrf
 

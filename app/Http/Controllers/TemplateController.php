@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Template;
 use App\Footer;
 use App\Header;
+use App\User;
+use App\Package;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTemplateRequest;
 use App\Http\Requests\UpdateTemplateRequest;
@@ -42,6 +44,15 @@ class TemplateController extends Controller
      */
     public function store(StoreTemplateRequest $request)
     {
+
+        $templatesCount = count(Template::where('users_id', '=', Auth::id())->get());
+        $user = User::FindOrFail(Auth::id());
+        $packet = Package::FindOrFail($user->packages_id);
+
+        if($packet->limittemplates >= $templatesCount){
+            return redirect()->route('templates.index')->with('message', 'U heeft uw Template Limiet al berijkt, om een nieuwe Template te maken dient u een oude te verwijderen of een hogere pakket te kiezen.');
+        }
+
         //
         $footer = new Footer();
         $header = new Header();

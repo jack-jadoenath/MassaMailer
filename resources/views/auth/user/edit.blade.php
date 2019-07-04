@@ -87,7 +87,7 @@
                             {{ $packet->name }}
                         </div>
                         <div class="card-body">
-                            <input type="radio" id="packet" name="packet" value="{{ $packet->id }}" />
+                            <input @if($packet->id == $user->packages_id) checked  @endif type="radio" id="packet" name="packet" value="{{ $packet->id }}" />
                         </div>
                     </div>
                 </div>

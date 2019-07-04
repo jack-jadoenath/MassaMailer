@@ -46,3 +46,4 @@ Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashbo
 Route::resource('/admin/support', 'Auth\Admin\SupportController');
 Route::resource('/admin/faq', 'Auth\Admin\FaqController');
 Route::resource('/admin/packets', 'Auth\Admin\PackageController');
+Route::resource('/admin/user', 'Auth\Admin\UserManageController');

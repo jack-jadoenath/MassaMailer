@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth\Admin;
 
 use App\User;
-use App\Package;
-use Auth;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateUsersRequest;
+use Auth;
+use App\Package;
+use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class UserManageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +18,11 @@ class UserController extends Controller
     public function index()
     {
         //
-        
-        $user = User::findOrFail(Auth::id());
-        if($user->packages_id != null){
-            $packet = Package::findOrFail($user->packages_id);
-        }else{
-            $packet = null;
-        }
-        
-        return view('auth.user.index', compact('user', 'packet'));
+        $users = User::all();
+
+        //dd($users[0]->supportticket()->get()); To Fix: users_id need to be user_id in SupportTickets
+
+        return view('auth.admin.user.index', compact('users'));
     }
 
     /**
@@ -70,10 +66,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        $user = User::findOrFail(Auth::id());
-        $packets = Package::all();
-        
-        return view('auth.user.edit', compact('user', 'packets'));
+        $packages = Package::all();
+        return view('auth.admin.user.edit', compact('user', 'packages'));
     }
 
     /**
@@ -83,17 +77,16 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUsersRequest $request, User $account)
+    public function update(Request $request, User $user)
     {
         //
-        $account->name = $request->name;
-        $account->email = $request->email;
-        $account->phone = $request->phone;
-        $account->card_last_four = substr($request->card_last_four, -4);
-        $account->packages_id = $request->packet;
-        $account->save();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->packages_id = $request->package;
+        $user->save();
 
-        return redirect()->route('account.index')->with('message', 'Gegevens zijn bewerkt.');
+        return redirect()->route('user.index')->with('message', 'Gebruiker is succesvol bewerkt.');
     }
 
     /**
@@ -105,5 +98,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        $user->delete();
+        return redirect()->route('user.index')->with('message', 'Gebruiker is succesvol verwijder.');
     }
 }

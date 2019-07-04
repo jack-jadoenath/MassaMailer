@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Package;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +54,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required' ,'max:15'],
+            'card_last_four' => ['required', 'min:12', 'max:19'],
+            'card_valid' => ['required', 'min:5', 'max:5'],
+            'card_ccv' => ['required', 'min:3', 'max:3'],
+            'packet' => ['required'],
         ]);
     }
 
@@ -68,7 +74,20 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'last_payment' => Carbon::now()
+            'last_payment' => Carbon::now(),
+            'phone' => $data['phone'],
+            'card_last_four' => substr($data['card_last_four'], -4),
+            'packages_id' => $data['packet']
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        //$region = Region::all();
+        $packets = Package::all();
+        return view('auth.register', compact('packets'));
+        // This will send the $region variable to the view
+    }
+
+    
 }
