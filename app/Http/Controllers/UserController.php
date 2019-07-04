@@ -6,6 +6,7 @@ use App\User;
 use App\Package;
 use Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateUsersRequest;
 
 class UserController extends Controller
 {
@@ -82,11 +83,15 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUsersRequest $request, User $account)
     {
         //
-
-        dd($user);
+        $account->name = $request->name;
+        $account->email = $request->email;
+        $account->phone = $request->phone;
+        $account->card_last_four = substr($request->card_last_four, -4);
+        $account->packages_id = $request->packet;
+        $account->save();
     }
 
     /**

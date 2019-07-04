@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Package;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
@@ -115,6 +116,10 @@ class PackageController extends Controller
 
     public function select(Request $request){
         if(Auth::check()){
+            $user = User::FindOrFail(Auth::id());
+            $user->packages_id = $request->id;
+            $user->save();
+            
             return redirect()->route('account.index')->with('message', 'Pakket is succesvol geselecteerd!');
         }
         return redirect()->route('register')->with('packet', $request->id);

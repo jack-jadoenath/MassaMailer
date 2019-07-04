@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
+        
+    @if(session('message'))
+        <p>{{ session('message') }}</p>
+    @endif
+
+
     <a href="{{ route('account.edit', $user) }}" class="btn btn-primary" >Bewerk mijn gegevens</a>
     <div class="col-md-6">
         <div class="form-group">
@@ -28,14 +34,11 @@
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="packet">Pakketen:</label>
+            <label for="packet">Email Pakket:</label>
             @if($packet != null)
                 <div class="card">
                     <div class="card-header">
                         {{ $packet->name }}
-                    </div>
-                    <div class="card-body">
-                        <input type="radio" id="packet" name="packet" value="{{ $packet->id }}" />
                     </div>
                 </div>
             @else

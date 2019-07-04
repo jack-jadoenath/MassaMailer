@@ -82,14 +82,20 @@
             <div class="card-header">
             @if ($supportticket->status == 0)
                 {{ $supportticket->question }}
-                <a class="btn btn-primary right" href="{{ route('contact.edit', $supportticket) }}"><i class="fa fa-pencil" ></i></a>
+                @if ($ticket->status == 0)
+                    <a class="btn btn-warning" title="Open Ticket" href="#"><i class="fa fa-bell" ></i></a>
+                @else
+                    <a class="btn btn-success" title="Beantwoorde Ticket" href="#"><i class="fa fa-bell" ></i></a>
+                @endif
+                <a class="btn btn-primary right" title="Bewerk mijn ticket" href="{{ route('contact.edit', $supportticket) }}"><i class="fa fa-pencil" ></i></a>
                     <form method="POST" action="{{ route('contact.destroy', $supportticket) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
-                        <button type="submit" class="btn btn-primary red"><i class="fa fa-minus-circle" ></i></button>
+                        <button type="submit" title="Sluit mijn ticket" class="btn btn-primary red"><i class="fa fa-minus-circle" ></i></button>
                     </form>
             @elseif ($supportticket->status == 1 or $supportticket->status == 2)
                 {{ $supportticket->question }}
+                <a class="btn btn-danger" title="Gesloten Ticket" href="#"><i class="fa fa-bell" ></i></a>
             @endif
             </div>
             <div class="card-body">{{ $supportticket->message }}</div> 
