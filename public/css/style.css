@@ -125,3 +125,7 @@ iframe {
 .green {
     background-color: green;
 }
+
+.auto {
+    height: 25%;
+}
