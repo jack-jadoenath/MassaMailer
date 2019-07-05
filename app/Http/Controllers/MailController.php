@@ -30,7 +30,8 @@ class MailController extends Controller
      */
     public function create()
     {
-        $templates = Template::where('users_id', '=', Auth::id())->get();
+        $user = User::FindOrFail(Auth::id());
+        $templates = $user->template()->get();
         $mailinglists = Mailinglist::where('users_id', '=', Auth::id())->get();
         return view('mail.create', compact('mail', 'templates', 'mailinglists'));
     }

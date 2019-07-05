@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Supportticket');
     }
+    
+    public function template()
+    {
+        return $this->hasMany('App\Template');
+    }
 }

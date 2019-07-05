@@ -22,7 +22,9 @@ class TemplateController extends Controller
     public function index()
     {
         //
-        $templates = Template::all();
+
+        $user = User::FindOrFail(Auth::id());
+        $templates = $user->template()->get();
         return view('templates.index', compact('templates'));
     }
 
@@ -44,10 +46,8 @@ class TemplateController extends Controller
      */
     public function store(StoreTemplateRequest $request)
     {
-
-        $templatesCount = count(Template::where('users_id', '=', Auth::id())->get());
         $user = User::FindOrFail(Auth::id());
-        
+        $templatesCount = count($user->template()->get());
         $packet = Package::FindOrFail($user->packages_id);
 
         if($templatesCount >= $packet->limittemplates){
@@ -64,7 +64,7 @@ class TemplateController extends Controller
 
         $template = new Template();
         $template->name = $request->name;
-        $template->users_id = Auth::id();
+        $template->user_id = Auth::id();
         $template->footers_id = $footer->id;
         $template->headers_id = $header->id;
        
@@ -90,10 +90,9 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function edit($template)
+    public function edit(Template $template)
     {
         //
-        $template = Template::findOrFail($template);
         $footer = Footer::findOrFail($template->footers_id);
         $header = Header::findOrFail($template->headers_id);
         return view('templates.edit', compact('template', 'footer', 'header'));
@@ -106,10 +105,9 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTemplateRequest $request, $template)
+    public function update(UpdateTemplateRequest $request, Template $template)
     {
         //
-        $template = Template::findOrFail($template);
         $footer = Footer::findOrFail($template->footers_id);
         $header = Header::findOrFail($template->headers_id);
         
@@ -138,11 +136,9 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function destroy($template)
+    public function destroy(Template $template)
     {
         //
-        $template = Template::findOrFail($template);
-
         $footer = Footer::findOrFail($template->footers_id);
         $header = Header::findOrFail($template->headers_id);
 

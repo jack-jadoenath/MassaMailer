@@ -13,4 +13,9 @@ class Template extends Model
     {
         $this->belongsTo('App\Mail');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
