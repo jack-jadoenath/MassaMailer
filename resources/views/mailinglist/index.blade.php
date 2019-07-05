@@ -4,23 +4,41 @@
 
 <title>Mailinglijst</title>
 
-<div class="md-7">
-    <h1 class="mt-5">Mailing lijst</h1>
+<div class="row">
+    <div class="col-md-12" >
+        @if(session('message'))
+            {{ session('message') }}
+            <div class="row">
+                <div class="filler"></div>
+            </div>
+        @endif
 
-    @if (session('message'))
-    <div class="alert alert-success">
-        {{session('message')}}
-    </div>
-    @endif
+        <div class="form-group row mb-0">
+            <div class="col-md-8">
+                <a class="btn btn-primary" href="{{ url('/mailinglist/create') }}">Maak nieuwe lijst</a>
+            </div>
+        </div>
 
-    <nav class="nav">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/mailinglist/create') }}">Maak lijst</a>
-            </li>
+        @foreach($mailinglists as $mailinglist)
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    {{ $mailinglist->name }}
+                    <a class="btn btn-primary right" href="{{ route('mailinglist.show', ['mailinglist' => $mailinglist->id]) }}"><i class="fa fa-pencil" ></i></a>
+                    <form method="POST" action="{{ route('mailinglist.destroy', $mailinglist) }}" class="right">
+                        {{ method_field('DELETE') }}
+                        @csrf
+                        <button type="submit" class="btn btn-primary red"><i class="fa fa-minus-circle" ></i></button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
 
-        </ul>
-    </nav>
+
+
+
+
+
 
     <table class="table">
         <thead class="thead">
