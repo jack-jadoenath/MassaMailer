@@ -118,14 +118,8 @@ iframe {
     width: auto;
 }
 
-.left {
-    float: left;
-}
-
 .green {
     background-color: green;
 }
 
-.auto {
-    height: 25%;
 }

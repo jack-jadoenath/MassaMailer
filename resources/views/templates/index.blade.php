@@ -6,6 +6,9 @@
             <div class="col-md-6" >
             @if(session('message'))
                 {{ session('message') }}
+                    <div class="row">
+                        <div class="filler"></div>
+                    </div>
             @endif
                 <form method="POST" action="{{ route('templates.index') }}">
                     @csrf

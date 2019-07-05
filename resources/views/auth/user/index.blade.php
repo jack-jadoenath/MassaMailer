@@ -5,7 +5,10 @@
     @if(session('message'))
         <p>{{ session('message') }}</p>
     @endif
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -41,6 +44,7 @@
             @endif
         </div>
         <a href="{{ route('account.edit', $user) }}" class="btn btn-primary" >Bewerk mijn gegevens</a>
+<<<<<<< Updated upstream
     </div>
     <div class="col-md-6">
         <br>
@@ -51,6 +55,8 @@
     </div>
 </div>
     
+=======
+>>>>>>> Stashed changes
     
 
 @endsection
