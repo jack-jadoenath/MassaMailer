@@ -8,9 +8,9 @@
             @csrf
 
             <div class="form-group row">
-                <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Vraag') }}</label>
+                <label for="question" class="col-md-1 col-form-label text-md-right">{{ __('Vraag') }}</label>
 
-                <div class="col-md-6">
+                <div class="col-md-11">
                     <input id="question" type="text" class="form-control @error('question') is-invalid @enderror" name="question" value="{{ old('question') }}" required autocomplete="question">
 
                     @error('question')
@@ -22,9 +22,9 @@
             </div>
 
             <div class="form-group row">
-                <label for="answer" class="col-md-4 col-form-label text-md-right">{{ __('Antwoord') }}</label>
+                <label for="answer" class="col-md-1 col-form-label text-md-right">{{ __('Antwoord') }}</label>
 
-                <div class="col-md-6">
+                <div class="col-md-11">
                     <textarea id="answer" type="text" class="form-control @error('answer') is-invalid @enderror" name="answer" value="{{ old('answer') }}" required autocomplete="answer"></textarea>
 
                     @error('message')
@@ -36,7 +36,7 @@
             </div>
 
             <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
+                <div class="col-md-8 offset-md-1">
                     <button type="submit" class="btn btn-primary">
                         {{ __('Toevoegen') }}
                     </button>

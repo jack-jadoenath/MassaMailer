@@ -68,8 +68,8 @@
             </div>
 
             <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4 left">
-                    <button type="submit" class="btn btn-primary left">
+                <div class="col-md-8 offset-md-2 left">
+                    <button type="submit" class="btn btn-primary">
                         {{ __('Verstuur') }}
                     </button>
                 </div>
@@ -95,7 +95,7 @@
                     </form>
             @elseif ($supportticket->status == 1 or $supportticket->status == 2)
                 {{ $supportticket->question }}
-                <a class="btn btn-danger" title="Gesloten Ticket" href="#"><i class="fa fa-bell" ></i></a>
+                <a class="btn btn-danger green" title="Gesloten Ticket" href="#"><i class="fa fa-bell" ></i></a>
             @endif
             </div>
             <div class="card-body">{{ $supportticket->message }}</div> 
