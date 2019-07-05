@@ -82,7 +82,7 @@
             <div class="card-header">
             @if ($supportticket->status == 0)
                 {{ $supportticket->question }}
-                @if ($ticket->status == 0)
+                @if ($supportticket->status == 0)
                     <a class="btn btn-warning" title="Open Ticket" href="#"><i class="fa fa-bell" ></i></a>
                 @else
                     <a class="btn btn-success" title="Beantwoorde Ticket" href="#"><i class="fa fa-bell" ></i></a>

@@ -18,7 +18,7 @@
                     <form method="POST" action="{{ route('support.destroy', $ticket) }}" class="right">
                         {{ method_field('DELETE') }}
                         @csrf
-                        <button type="submit"  title="Verwijder Ticket" class="btn btn-danger"><i class="fa fa-trash" ></i></button>
+                        <button type="submit"  title="Verwijder Ticket" class="btn btn-danger left"><i class="fa fa-trash" ></i></button>
                     </form>
                 </div>
                 <div class="card-body">{{ $ticket->message }}</div> 
