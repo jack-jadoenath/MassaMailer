@@ -25,8 +25,13 @@
             <div class="card-header">
                 {{ $mailinglist->name }}
                 <a class="btn btn-primary right"
-                    href="{{ route('mailinglist.show', ['mailinglist' => $mailinglist->id]) }}"><i
-                        class="fa fa-pencil"></i></a>
+                    href="{{ route('mailinglist.show', ['mailinglist' => $mailinglist->id]) }}">
+                    <i class="fa fa-address-book"></i></a>
+
+                <a class="btn btn-primary right"
+                   href="{{ route('mailinglist.edit', ['mailinglist' => $mailinglist->id]) }}">
+                    <i class="fa fa-pencil"></i></a>
+
                 <form method="POST" action="{{ route('mailinglist.destroy', $mailinglist) }}" class="right">
                     {{ method_field('DELETE') }}
                     @csrf
