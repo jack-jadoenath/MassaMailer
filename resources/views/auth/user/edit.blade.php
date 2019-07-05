@@ -7,10 +7,7 @@
 }
 </style>
 <div class="row">
-<<<<<<< Updated upstream
     <form method="POST" action="{{route('account.update', $account)}}" class="col-md-6">
-=======
->>>>>>> Stashed changes
     @method('PATCH')
 
         @csrf
@@ -102,6 +99,5 @@
         Hier kunnen de account gegevens aangepast worden.
     </div>
 </div>
-
 
 @endsection

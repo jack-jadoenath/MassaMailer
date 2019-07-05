@@ -6,25 +6,19 @@
         @if($users != null && count($users) > 0)
             <table class="table">
                 <tr>
-<<<<<<< Updated upstream
-                    <th scope="col" class="center">Naam</th>
-                    <th scope="col" class="center">Email</th>
-                    <th scope="col" class="center">Telefoon</th>
-                    <th scope="col" class="center">Pakket</th>
-                    <th scope="col" class="center">Acties</th>
-=======
->>>>>>> Stashed changes
+                    <th scope="col" class="text_center">Naam</th>
+                    <th scope="col" class="text_center">Email</th>
+                    <th scope="col" class="text_center">Telefoon</th>
+                    <th scope="col" class="text_center">Pakket</th>
+                    <th scope="col" class="text_center">Acties</th>
                 </tr>
             @foreach($users as $user)
            
                 <tr>
-<<<<<<< Updated upstream
-                    <td class="center">{{ $user->name }} </td>
-                    <td class="center">{{ $user->email }} </td>
-                    <td class="center">{{ $user->phone }} </td>
-                    <td class="center">{{ $user->packages_id }} </td>
-=======
->>>>>>> Stashed changes
+                    <td class="text_center">{{ $user->name }} </td>
+                    <td class="text_center">{{ $user->email }} </td>
+                    <td class="text_center">{{ $user->phone }} </td>
+                    <td class="text_center">{{ $user->packages_id }} </td>
                     <td>
 
                         <a class="btn btn-primary right"  title="Bewerk" href="{{ route('user.edit', $user) }}"><i class="fa fa-pencil"></i></a>
