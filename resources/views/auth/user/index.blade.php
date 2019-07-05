@@ -46,7 +46,7 @@
         Welkom op de account page
         <br>
         <br>
-        Hier kunnen de account gegevens ingezien worden.
+        Hier kunnen de account gegevens ingezien worden. Ook is het mogelijk om de account gegevens te wijzigen door op de "Bewerk mijn gegevens" knop te drukken. Vanaf daar is het ook mogelijk om het pakket te upgraden/downgraden voor meer of minder mogelijkheden via Massa Mailer.
     </div>
 </div>
 

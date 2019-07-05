@@ -91,12 +91,30 @@
             <button class="form-control btn btn-primary"  type="submit"  >Opslaan</button>
         </div>
     </form>
-    <div class="col-md-6">
+    <div class="col-md-5 offset-md-1">
         <br>
         Welkom op de account edit pagina.
         <br>
         <br>
-        Hier kunnen de account gegevens aangepast worden.
+        Hier kunnen de account gegevens aangepast worden. Ook kan het pakket aangepast worden.
+        <ul>Bronz Pakket
+            <li>5 lijsten</li>
+            <li>10 mails</li>
+            <li>5 templates</li>
+            <li>$5.00</li>
+        </ul>
+        <ul>Zilver Pakket
+            <li>20 lijsten</li>
+            <li>30 mails</li>
+            <li>10 templates</li>
+            <li>$10.00</li>
+        </ul>
+        <ul>Goud Pakket
+            <li>50 lijsten</li>
+            <li>75 mails</li>
+            <li>15 templates</li>
+            <li>$15.00</li>
+        </ul>
     </div>
 </div>
 
