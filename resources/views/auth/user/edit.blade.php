@@ -6,14 +6,14 @@
     display: block;
 }
 </style>
-<form method="POST" action="{{route('account.update', $user)}}"> 
+<form method="POST" action="{{route('account.update', $account)}}"> 
 @method('PATCH')
 
         @csrf
     <div class="col-md-6">
         <div class="form-group">
             <label for="name">Naam:</label>
-            <input required class="form-control" id="name" name="name" type="text" value="{{ $user->name }}"  />
+            <input required class="form-control" id="name" name="name" type="text" value="{{ $account->name }}"  />
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input required class="form-control" id="email" name="email" type="email" value="{{ $user->email }}"  />
+            <input required class="form-control" id="email" name="email" type="email" value="{{ $account->email }}"  />
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="phone">Telefoon:</label>
-            <input required class="form-control" id="phone" name="phone" type="text" value="{{ $user->phone }}" />
+            <input required class="form-control" id="phone" name="phone" type="text" value="{{ $account->phone }}" />
             @error('phone')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                             {{ $packet->name }}
                         </div>
                         <div class="card-body">
-                            <input @if($packet->id == $user->packages_id) checked  @endif type="radio" id="packet" name="packet" value="{{ $packet->id }}" />
+                            <input @if($packet->id == $account->packages_id) checked  @endif type="radio" id="packet" name="packet" value="{{ $packet->id }}" />
                         </div>
                     </div>
                 </div>

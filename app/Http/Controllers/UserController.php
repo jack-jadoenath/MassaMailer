@@ -20,18 +20,14 @@ class UserController extends Controller
         //
         
         $user = User::findOrFail(Auth::id());
-        if($user->packages_id != null){
-            $packet = Package::findOrFail($user->packages_id);
-        }else{
-            $packet = null;
-        }
+        $packet = Package::findOrFail($user->packages_id);
         
         return view('auth.user.index', compact('user', 'packet'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     *s
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -56,7 +52,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $account)
     {
         //
     }
@@ -67,13 +63,12 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $account)
     {
         //
-        $user = User::findOrFail(Auth::id());
         $packets = Package::all();
         
-        return view('auth.user.edit', compact('user', 'packets'));
+        return view('auth.user.edit', compact('account', 'packets'));
     }
 
     /**
@@ -102,7 +97,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $account)
     {
         //
     }

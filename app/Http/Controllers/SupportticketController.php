@@ -24,7 +24,8 @@ class SupportticketController extends Controller
         if (Auth::check())
         {
             $user = User::FindOrFail(Auth::id());
-            $supporttickets = $user->supportticket()->get();
+            $supporttickets = $user->supportticket()->get()->sortBy('status');
+            
             return view('support.index', compact('supporttickets'));
         }else{
             return view('support.index');

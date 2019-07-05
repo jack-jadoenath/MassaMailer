@@ -8,7 +8,7 @@
             @foreach($tickets as $ticket)
             <div class="card">
                 <div class="card-header">
-                    {{ $ticket->question }}
+                    <b>{{ $ticket->user()->first()->name }}:</b> {{ $ticket->question }}
                     @if ($ticket->status == 0)
                         <a class="btn btn-warning" title="Open Ticket" href="#"><i class="fa fa-bell" ></i></a>
                     @else

@@ -20,7 +20,6 @@ class SupportController extends Controller
     public function index()
     {
         $tickets = Supportticket::where('status', '!=', 2)->orderBy('status', 'asc')->orderBy('date', 'asc')->get();
-
         return view('auth.admin.support.index', compact('tickets'));
     }
 
@@ -51,7 +50,7 @@ class SupportController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function show(Supportticket $supportticket)
+    public function show(Supportticket $support)
     {
         //
     }
@@ -62,12 +61,10 @@ class SupportController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function edit($supportticket)
+    public function edit(Supportticket $support)
     {
         //
-        //dd(['supportticket' => $supportticket]);
-        $supportticket = Supportticket::findOrFail($supportticket);
-        return view('auth.admin.support.edit', compact('supportticket'));
+        return view('auth.admin.support.edit', compact('support'));
     }
 
     /**
@@ -77,13 +74,12 @@ class SupportController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function update(AnswerSupportticketRequest $request, $supportticket)
+    public function update(AnswerSupportticketRequest $request, Supportticket $support)
     {
         //
-        $supportticket = Supportticket::findOrFail($supportticket);
-        $supportticket->answer = $request->answer;
-        $supportticket->status = 1;
-        $supportticket->save();
+        $support->answer = $request->answer;
+        $support->status = 1;
+        $support->save();
 
         return redirect()->route('support.index')->with('message', 'Support Ticket is succesvol Beantwoord');
     }
@@ -94,11 +90,10 @@ class SupportController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy($supportticket)
+    public function destroy(Supportticket $support)
     {
         //
-        $supportticket = Supportticket::findOrFail($supportticket);
-        $supportticket->delete();
+        $support->delete();
         return redirect()->route('support.index')->with('message', 'Ticket is succesvol verwijder.');
     }
 }
