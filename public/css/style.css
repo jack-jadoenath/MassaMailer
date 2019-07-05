@@ -122,4 +122,6 @@ iframe {
     background-color: green;
 }
 
+.full_width {
+    width: 100%;
 }
