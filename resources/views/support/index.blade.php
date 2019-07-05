@@ -19,7 +19,6 @@
                 <li>support@massamailer.com</li>
                 <li>06735586378</li>
                 <li>4587 DK, Earnewald, The Netherlands</li>
-
             </div>
         </div>
     @endguest
