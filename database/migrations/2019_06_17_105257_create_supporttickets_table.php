@@ -16,7 +16,7 @@ class CreateSupportticketsTable extends Migration
         Schema::create('supporttickets', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('users_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->string('question');
             $table->longText('message');
             $table->longText('answer')->nullable();

@@ -47,9 +47,10 @@ class TemplateController extends Controller
 
         $templatesCount = count(Template::where('users_id', '=', Auth::id())->get());
         $user = User::FindOrFail(Auth::id());
+        
         $packet = Package::FindOrFail($user->packages_id);
 
-        if($packet->limittemplates >= $templatesCount){
+        if($templatesCount >= $packet->limittemplates){
             return redirect()->route('templates.index')->with('message', 'U heeft uw Template Limiet al berijkt, om een nieuwe Template te maken dient u een oude te verwijderen of een hogere pakket te kiezen.');
         }
 

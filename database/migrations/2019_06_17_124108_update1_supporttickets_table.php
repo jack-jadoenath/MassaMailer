@@ -14,7 +14,7 @@ class Update1SupportticketsTable extends Migration
     public function up()
     {
         Schema::table('supporttickets', function (Blueprint $table) {
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

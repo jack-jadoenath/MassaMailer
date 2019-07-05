@@ -6,7 +6,7 @@
             {{ session('message') }}
         @endif
 
-        <form method="POST" action="{{ route('contact.update', $supportticket) }}">
+        <form method="POST" action="{{ route('contact.update', $contact) }}">
             @csrf
             {{ method_field('PATCH') }}
 
@@ -14,7 +14,7 @@
                 <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Vraag') }}</label>
 
                 <div class="col-md-6">
-                    <input id="question" type="text" class="form-control @error('question') is-invalid @enderror" name="question" value="{{ $supportticket->question }}" required autocomplete="question">
+                    <input id="question" type="text" class="form-control @error('question') is-invalid @enderror" name="question" value="{{ $contact->question }}" required autocomplete="question">
 
                     @error('question')
                         <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                 <label for="message" class="col-md-4 col-form-label text-md-right">{{ __('Bericht') }}</label>
 
                 <div class="col-md-6">
-                    <textarea id="message" type="text" class="form-control @error('message') is-invalid @enderror" name="message" value="{{ $supportticket->message }}" required autocomplete="message">{{ $supportticket->message }}</textarea>
+                    <textarea id="message" type="text" class="form-control @error('message') is-invalid @enderror" name="message" value="{{ $contact->message }}" required autocomplete="message">{{ $supportticket->message }}</textarea>
 
                     @error('message')
                         <span class="invalid-feedback" role="alert">

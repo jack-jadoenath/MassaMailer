@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Supportticket;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreSupportticketRequest;
 use App\Http\Requests\UpdateSupportticketRequest;
@@ -18,9 +19,12 @@ class SupportticketController extends Controller
      */
     public function index()
     {
+        
+
         if (Auth::check())
         {
-            $supporttickets = Supportticket::where('users_id', '=', Auth::id())->get();
+            $user = User::FindOrFail(Auth::id());
+            $supporttickets = $user->supportticket()->get();
             return view('support.index', compact('supporttickets'));
         }else{
             return view('support.index');
@@ -50,7 +54,7 @@ class SupportticketController extends Controller
     {
         //
         $supportticket = new Supportticket();
-        $supportticket->users_id = Auth::id();
+        $supportticket->user_id = Auth::id();
         $supportticket->question = $request->question;
         $supportticket->message = $request->message;
         $supportticket->date = Carbon::now();
@@ -66,7 +70,7 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function show(Supportticket $supportticket)
+    public function show(Supportticket $contact)
     {
         //
     }
@@ -77,12 +81,10 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function edit($supportticket)
+    public function edit(Supportticket $contact)
     {
         //
-        //dd(['supportticket' => $supportticket]);
-        $supportticket = Supportticket::findOrFail($supportticket);
-        return view('support.edit', compact('supportticket'))->with('message', 'Uw tickets is succesvol aangemaakt.');
+        return view('support.edit', compact('contact'))->with('message', 'Uw tickets is succesvol aangemaakt.');
     }
 
     /**
@@ -92,13 +94,12 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSupportticketRequest $request, $supportticket)
+    public function update(UpdateSupportticketRequest $request, Supportticket $contact)
     {
         //
-        $supportticket = Supportticket::findOrFail($supportticket);
-        $supportticket->question = $request->question;
-        $supportticket->message = $request->message;
-        $supportticket->save();
+        $contact->question = $request->question;
+        $contact->message = $request->message;
+        $contact->save();
 
         return redirect()->route('contact.index')->with('message', 'Support Ticket is succesvol Bewerkt');
     }
@@ -109,13 +110,11 @@ class SupportticketController extends Controller
      * @param  \App\Supportticket  $supportticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy($supportticket)
+    public function destroy(Supportticket $contact)
     {
         //
-
-        $supportticket = Supportticket::findOrFail($supportticket);
-        $supportticket->status = 2;
-        $supportticket->save();
+        $contact->status = 2;
+        $contact->save();
         return redirect()->route('contact.index')->with('message', 'Ticket is succesvol Gesloten.');
     }
 }
