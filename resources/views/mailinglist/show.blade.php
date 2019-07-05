@@ -19,21 +19,25 @@
     </div>
     <div class="card-body">
 
-        @if($recipients = null && count($recipients) > 0)
-        @foreach($recipients as $recipient)
+        @if(empty($recipients))
 
-        <ul name="{{$recipient->id }}" class="card-text">{{ $recipient->email }}
-            <li name="{{$recipient->id }}" class="card-text">{{ $recipient->firstname }}</li>
-            <li name="{{$recipient->id }}" class="card-text">{{ $recipient->lastname }}</li>
-        </ul>
-        @endforeach
-        @else
+
         <br>
         <div class="card">
             <div class="card-header">
                 Geen ontvangers gevonden.
             </div>
         </div>
+
+
+
+        @else
+        @foreach($recipients as $recipient)
+        <ul name="{{$recipient->id }}" class="card-text">{{ $recipient->email }}
+            <li name="{{$recipient->id }}" class="card-text">{{ $recipient->firstname }}</li>
+            <li name="{{$recipient->id }}" class="card-text">{{ $recipient->lastname }}</li>
+        </ul>
+        @endforeach
         @endif
     </div>
 

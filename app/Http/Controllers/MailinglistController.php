@@ -66,13 +66,14 @@ class MailinglistController extends Controller
     {
         $mailinglist = Mailinglist::findOrFail($mailinglist);
 
+
+
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
         $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
-            
-            foreach ($mailinglistRecipients as $mailinglistRecipient) {
-                $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
-            }
-        
+
+        foreach ($mailinglistRecipients as $mailinglistRecipient) {
+            $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
+        }
         return view('mailinglist.show', compact('mailinglist', 'recipients'));
     }
 
@@ -91,11 +92,7 @@ class MailinglistController extends Controller
         foreach ($mailinglistRecipients as $mailinglistRecipient) {
             $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
         }
-
-
-
-
-        return view('mailinglist.edit', compact('mailinglist', 'recipients'));
+        return view('mailinglist.edit', compact('mailinglist', 'recipients', 'mailinlistRecipients'));
     }
 
     /**
@@ -108,6 +105,7 @@ class MailinglistController extends Controller
     public function update(StoreMailinglistRequest $request, Mailinglist $mailinglist)
     {
         $mailinglist->name = $request->name;
+
         $mailinglist->save();
 
         return redirect()->route('mailinglist.index')->with('message', 'Mailinglijst aangepast!');

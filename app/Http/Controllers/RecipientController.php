@@ -14,7 +14,8 @@ class RecipientController extends Controller
      */
     public function index()
     {
-        //h
+        $recipients = Recipient::all();
+        return view('mailinglist.index', compact('$recipients'));
     }
 
     /**
@@ -24,7 +25,7 @@ class RecipientController extends Controller
      */
     public function create()
     {
-        //
+        return view('mailinglist.index', compact('$recipients'));
     }
 
     /**
@@ -37,12 +38,13 @@ class RecipientController extends Controller
     {
         $recipient = new Recipient();
 
-        $recipient->firstname = $request->firstname;
+        $recipient->email = $request->email;
         $recipient->firstname = $request->firstname;
         $recipient->lastname = $request->lastname;
 
 
         $recipient->save();
+        return view('mailinglist.index')->with('message', 'Ontvanger aangemaakt!');
     }
 
     /**
@@ -79,7 +81,11 @@ class RecipientController extends Controller
      */
     public function update(Request $request, Recipient $recipient)
     {
-        //
+        $recipient->email = $request->email;
+        $recipient->firstname = $request->firstname;
+        $recipient->lastname = $request->lastname;
+        $recipient->save();
+        return redirect()->route('mailinglist.edit')->with('message', 'Ontvanger aangepast!');
     }
 
     /**
