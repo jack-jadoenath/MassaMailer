@@ -6,11 +6,11 @@
     display: block;
 }
 </style>
-<form method="POST" action="{{route('account.update', $account)}}"> 
-@method('PATCH')
+<div class="row">
+    <form method="POST" action="{{route('account.update', $account)}}" class="col-md-6">
+    @method('PATCH')
 
         @csrf
-    <div class="col-md-6">
         <div class="form-group">
             <label for="name">Naam:</label>
             <input required class="form-control" id="name" name="name" type="text" value="{{ $account->name }}"  />
@@ -20,8 +20,6 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="email">Email:</label>
             <input required class="form-control" id="email" name="email" type="email" value="{{ $account->email }}"  />
@@ -31,8 +29,6 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="phone">Telefoon:</label>
             <input required class="form-control" id="phone" name="phone" type="text" value="{{ $account->phone }}" />
@@ -42,8 +38,6 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="card_last_four">Creditcard Nummer:</label>
             <input required class="form-control" id="card_last_four" name="card_last_four" type="number" value=""  />
@@ -53,8 +47,6 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="card_valid">Geldig tot (mm/yy):</label>
             <input required class="form-control" id="card_valid" name="card_valid" type="text" value=""  />
@@ -64,8 +56,6 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="card_ccv">CCV Code:</label>
             <input required class="form-control" id="card_ccv" name="card_ccv" type="number" min="0" max="999" value=""  />
@@ -75,8 +65,6 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="packet">Pakketen:</label>
             <div class="row">
@@ -99,13 +87,17 @@
                 </span>
             @enderror
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <button class="form-control btn btn-primary"  type="submit"  >Opslaan</button>
         </div>
-    </div>
-    
     </form>
+    <div class="col-md-6">
+        <br>
+        Welkom op de account edit pagina.
+        <br>
+        <br>
+        Hier kunnen de account gegevens aangepast worden.
+    </div>
+</div>
 
 @endsection

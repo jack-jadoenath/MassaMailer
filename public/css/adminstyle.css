@@ -112,3 +112,7 @@ div.dashboard_icon_div p {
 .right {
     float: right;
 }
+
+.center {
+    text-align: center;
+}

@@ -4,21 +4,21 @@
         {{ session('message') }}
 
         @if($users != null && count($users) > 0)
-            <table>
+            <table class="table">
                 <tr>
-                    <th>Naam</th>
-                    <th>Email</th>
-                    <th>Telefoon</th>
-                    <th>Pakket</th>
-                    <th>Acties</th>
+                    <th scope="col" class="center">Naam</th>
+                    <th scope="col" class="center">Email</th>
+                    <th scope="col" class="center">Telefoon</th>
+                    <th scope="col" class="center">Pakket</th>
+                    <th scope="col" class="center">Acties</th>
                 </tr>
             @foreach($users as $user)
            
                 <tr>
-                    <td>{{ $user->name }} </td>
-                    <td>{{ $user->email }} </td>
-                    <td>{{ $user->phone }} </td>
-                    <td>{{ $user->packages_id }} </td>
+                    <td class="center">{{ $user->name }} </td>
+                    <td class="center">{{ $user->email }} </td>
+                    <td class="center">{{ $user->phone }} </td>
+                    <td class="center">{{ $user->packages_id }} </td>
                     <td>
 
                         <a class="btn btn-primary right"  title="Bewerk" href="{{ route('user.edit', $user) }}"><i class="fa fa-pencil"></i></a>

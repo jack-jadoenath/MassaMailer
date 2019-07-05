@@ -36,6 +36,11 @@
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/user') }}">Users</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('/admin/support') }}">Support Tickets</a>
                     </li>
                 </ul>
