@@ -3,23 +3,36 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
 
         Mail opstellen
 
-        <form method="POST" action="{{ route('mail.index') }}">
+        <form method="POST" action="{{ route('mail.create') }}">
             @method('POST')
             @csrf
-            <div class="col-sm-10 form-group row">
-
+            <div class="form-group row">
+                @if(!empty($templates))
                 <select name="templates_id" class="form-control">
+
 
                     @foreach ($templates as $template)
 
                     <option value="{{$template->id}}">{{$template->name}}</option>
 
                     @endforeach
+
                 </select>
+                @else
+                <select name="null" type="disabled" class="form-control">
+
+
+
+                    <option value="Voeg een template toe!">Voeg een template toe!</option>
+
+
+                </select>
+                @endif
+
 
                 <select class="form-control">
                     @foreach ($mailinglists as $mailinglist)
@@ -28,16 +41,17 @@
                     @endforeach
                 </select>
 
-                <div class="col-sm-10 form-group row">
+                <div class="form-group row">
                     <div class="col-sm-12">
                         <label for="name" class="col-form-label">Onderwerp</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Onderwerp">
                     </div>
-                    <div class="col-sm-12">
-                        <label for="message" class="col-form-label">Bericht</label>
-                        <input type="text" name="message" class="form-control" id="message" placeholder="Bericht">
+                    <div class="shadow-textarea">
+                        <label for="message">Bericht</label>
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6"
+                            placeholder="Schrijf uw bericht hier..."></textarea>
                     </div>
-                    <div class="container col-sm-12">
+                    <div class="container">
                         <div class="row">
                             <div class="form-group">
                                 <div class='input-group date' id='datetimepicker2'>

@@ -54,6 +54,7 @@
                     </th>
                 </thead>
                 <tbody>
+
                     <td><input name="email" type="text" class="form-control" id="email" placeholder="Nieuwe Email"></td>
                     <td><input name="firstname" type="text" class="form-control" id="firstname"
                             placeholder="Nieuwe Voornaam "></td>

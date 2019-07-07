@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail;
 use App\Template;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Mailinglist;
@@ -31,8 +32,9 @@ class MailController extends Controller
     public function create()
     {
         $user = User::FindOrFail(Auth::id());
-        $templates = $user->template()->get();
+        //$templates = $user->template()->get();
         $mailinglists = Mailinglist::where('users_id', '=', Auth::id())->get();
+
         return view('mail.create', compact('mail', 'templates', 'mailinglists'));
     }
 
@@ -46,6 +48,7 @@ class MailController extends Controller
     {
         $mail = new Mail();
 
+        $user = User::FindOrFail(Auth::id());
         $mail->name = $request->name;
         $mail->message = $request->message;
         $mail->users_id = Auth::user()->id;

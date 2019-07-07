@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Recipient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\MailinglistRecipients;
+use App\Mailinglist;
 
 class RecipientController extends Controller
 {
@@ -15,7 +18,7 @@ class RecipientController extends Controller
     public function index()
     {
         $recipients = Recipient::all();
-        return view('mailinglist.index', compact('$recipients'));
+        return Redirect('mailinglist');
     }
 
     /**
@@ -37,13 +40,24 @@ class RecipientController extends Controller
     public function store(Request $request)
     {
         $recipient = new Recipient();
+        //$mailinglistrecipients = new MailinglistRecipients();
+        //$insertMailinglist = Mailinglist::create($mailinglistData);
+        //$mailinglistData = Mailinglist::find($mailinglists_id)->getMailinglist;
+
 
         $recipient->email = $request->email;
         $recipient->firstname = $request->firstname;
         $recipient->lastname = $request->lastname;
 
-
         $recipient->save();
+
+        //$mailinglistrecipients = MailinglistRecipients::create($mailinglistData);
+
+        //$mailinglistrecipients->save();
+
+
+
+
         return view('mailinglist.index')->with('message', 'Ontvanger aangemaakt!');
     }
 
