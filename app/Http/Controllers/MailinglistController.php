@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Mailinglist;
 use App\Recipient;
 use App\MailinglistRecipients;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 use App\Http\Requests\StoreMailinglistRequest;
 
@@ -20,6 +22,7 @@ class MailinglistController extends Controller
     public function index()
     {
         $mailinglists = Mailinglist::all();
+        $user = User::FindOrFail(Auth::id());
 
         return view('mailinglist.index', compact('mailinglists'));
     }

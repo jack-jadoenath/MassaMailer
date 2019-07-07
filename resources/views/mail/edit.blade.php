@@ -8,7 +8,7 @@
 
 
 
-        <form method="post" action="{{ route('mail.store') }}">
+        <form method="post" action="{{ route('mail.update', $mail) }}">
             @method('POST')
             @csrf
             <div class="form-group row">
@@ -27,17 +27,18 @@
                 <div class="form-group row">
                     <div class="col-sm-12">
                         <label for="name" class="col-form-label">Onderwerp</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Onderwerp">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="{{ $mail->name }}"
+                            value="{{ $mail->name }}">
                     </div>
                     <div class="col-sm-12 shadow-textarea">
                         <label for="message">Bericht</label>
                         <textarea class="form-control z-depth-1" rows="13" name="message" id="message"
-                            placeholder="Schrijf uw bericht hier..."></textarea>
+                            value="{{ $mail->message }}" placeholder="Schrijf uw bericht hier..."></textarea>
                     </div>
                     <div class="col-sm-12">
                         <label for="send_at">Verstuur datum (optioneel)</label>
                         <div class='input-group date' id='datetimepicker2'>
-                            <input type='text' name="send_at" class="form-control" />
+                            <input type='text' name="send_at" class="form-control" value="{{$mail->send_at}}" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -56,7 +57,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <button type="submit" class="btn btn-primary">Sla bericht op</button>
+                <button type="submit" class="btn btn-primary">Pas bericht aan</button>
             </div>
     </div>
 </div>

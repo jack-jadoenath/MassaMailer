@@ -20,8 +20,10 @@ class MailController extends Controller
     {
 
         $mails = Mail::all();
+        $mailinglists = Mailinglist::all();
+        $user = User::FindOrFail(Auth::id());
 
-        return view('mail.index', compact('mail', 'templates', 'mailinglists'));
+        return view('mail.index', compact('mails', 'templates', 'mailinglists'));
     }
 
     /**
@@ -31,10 +33,11 @@ class MailController extends Controller
      */
     public function create()
     {
+
         $user = User::FindOrFail(Auth::id());
         //$templates = $user->template()->get();
         $mailinglists = Mailinglist::where('users_id', '=', Auth::id())->get();
-
+        $templates = Template::where('users_id', '=', Auth::id())->get();
         return view('mail.create', compact('mail', 'templates', 'mailinglists'));
     }
 
@@ -47,14 +50,12 @@ class MailController extends Controller
     public function store(Request $request)
     {
         $mail = new Mail();
-
-        $user = User::FindOrFail(Auth::id());
         $mail->name = $request->name;
         $mail->message = $request->message;
         $mail->users_id = Auth::user()->id;
-        $mail->templates_id = $request->templates;
+        $mail->templates_id = $request->templates_id;
         $mail->save();
-        return redirect()->route('mail.index')->with('message', 'Bericht opgestuurd naar uw ontvangers!');
+        return redirect()->route('mail.index')->with('message', 'Bericht opgeslagen en gereed om verstuurd te worden!!');
     }
 
     /**
@@ -76,7 +77,9 @@ class MailController extends Controller
      */
     public function edit(Mail $mail)
     {
-        //
+        $mail = Mail::findOrFail($mail);
+
+        return view('mail.create');
     }
 
     /**
@@ -88,7 +91,12 @@ class MailController extends Controller
      */
     public function update(Request $request, Mail $mail)
     {
-        //
+        $mail->name = $request->name;
+        $mail->message = $request->message;
+        $mail->users_id = Auth::user()->id;
+        $mail->templates_id = $request->templates_id;
+        $mail->save();
+        return redirect()->route('mail.index')->with('message', 'Bericht aangepast en gereed om verstuurd te worden!!');
     }
 
     /**
@@ -99,6 +107,8 @@ class MailController extends Controller
      */
     public function destroy(Mail $mail)
     {
-        //
+        $mail->delete();
+
+        return redirect()->route('mail.index')->with('message', 'Bericht verwijdert!');
     }
 }

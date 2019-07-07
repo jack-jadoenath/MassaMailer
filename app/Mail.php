@@ -11,6 +11,8 @@ class Mail extends Model
 
     protected $table = 'mails';
 
+    protected $fillable = ['name', 'message', 'templates_id'];
+
     public function user()
     {
         return $this->hasOne('App\User');
