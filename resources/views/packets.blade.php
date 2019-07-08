@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - Pakketten
+@endsection
+
 @section('content')
         
         @if($packets != null && count($packets) > 0)
