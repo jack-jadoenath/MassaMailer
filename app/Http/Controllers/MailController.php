@@ -78,6 +78,7 @@ class MailController extends Controller
     public function edit(Mail $mail)
     {
 
+        $templates = Template::where('user_id', '=', Auth::id())->get();
 
         return view('mail.edit', compact('mail', 'templates', 'mailinglists'));
     }

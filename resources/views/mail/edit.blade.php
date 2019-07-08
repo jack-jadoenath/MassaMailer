@@ -9,7 +9,7 @@
 
 
 
-        <form method="post" action="{{ route('mail.update', $mail) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('mail.update', $mail) }}" enctype="multipart/form-data ">
             @method('PATCH')
             @csrf
             <div class="form-group row">
@@ -33,18 +33,18 @@
                     <div class="col-sm-12 shadow-textarea">
                         <label for="message">Bericht</label>
                         <textarea class="form-control z-depth-1" rows="13" name="message" id="message"
-                            value="{{ $mail->message }}"></textarea>
+                            placeholder="{{ $mail->message }}">{{ $mail->message }}</textarea>
                     </div>
                     <div class="col-sm-12">
                         <label for="send_at">Verstuur datum (optioneel)</label>
-                        <div class='input-group date' id='datetimepicker2'>
+                        <div class='input-group date' id='send_at'>
                             <input type='text' name="send_at" class="form-control" value="{{$mail->send_at}}" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                             <script type="text/javascript">
                                 $(function () {
-                                            $('#datetimepicker2').datetimepicker({
+                                            $('#send_at').datetimepicker({
                                                 locale: 'nl'
                                                 startDate: date
                                             });

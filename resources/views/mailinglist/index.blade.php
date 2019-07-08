@@ -29,7 +29,7 @@
                     <i class="fa fa-address-book"></i></a>
 
                 <a class="btn btn-primary right"
-                   href="{{ route('mailinglist.edit', ['mailinglist' => $mailinglist->id]) }}">
+                    href="{{ route('mailinglist.edit', ['mailinglist' => $mailinglist->id]) }}">
                     <i class="fa fa-pencil"></i></a>
 
                 <form method="POST" action="{{ route('mailinglist.destroy', $mailinglist) }}" class="right">
@@ -40,41 +40,5 @@
             </div>
         </div>
         @endforeach
-
-
-
-
-
-
-
-        <table class="table">
-            <thead class="thead">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Naam</th>
-                    <th scope="col">Informatie</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($mailinglists as $mailinglist)
-                <tr>
-                    <td scope="row">{{ $mailinglist->id }}</td>
-                    <td> {{ $mailinglist->name }} </td>
-                    <td><a href="{{ route('mailinglist.edit',
-                        ['mailinglist' => $mailinglist->id]) }}">Edit</a></td>
-                    <td><a href="{{ route('mailinglist.show',
-                                        ['mailinglist' => $mailinglist->id]) }}">Info</a></td>
-                    <td>
-                        <form method="POST" action="{{ route('mailinglist.destroy', $mailinglist) }}">
-                            {{ method_field('DELETE') }}
-                            @csrf
-                            <button type="submit" class="btn">Verwijder</button> </form>
-                    </td>
-
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
 
         @endsection
