@@ -74,6 +74,8 @@ class MailinglistController extends Controller
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
         $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
 
+        $recipients = [];
+
         foreach ($mailinglistRecipients as $mailinglistRecipient) {
             $recipients[] = Recipient::findOrFail($mailinglistRecipient->recipients_id);
         }
