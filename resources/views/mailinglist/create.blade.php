@@ -3,28 +3,22 @@
 @section('content')
 
 <title>Maak een mailinglist</title>
+<div class="row">
+    <div class="col-md-6">
+        <h1>Voeg een Mailing lijst toe</h1>
 
-<div class="md-7">
-    <h1 class="mt-5">Voeg een Mailing lijst toe</h1>
-
-    <form method="post" action="{{route('mailinglist.index')}}" enctype="multipart/form-data">
-        @method('POST')
-        @csrf
-        <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Lijst naam</label>
-            <div class="col-sm-10">
-                <input name="name" type="text" class="form-control" id="name" placeholder="Lijst naam">
-            </div>
-
-            <div class="form-group row">
-                <div class="offset-sm-3">
-                    <button type="submit" class="btn btn-primary">Voeg Mailinglijst toe</button>
-                </div>
-
-            </div>
-        </div>
-    </form>
-
+        <form method="post" action="{{route('mailinglist.index')}}" enctype="multipart/form-data">
+            @method('POST')
+            @csrf
+            <input name="name" type="text" class="form-control" id="name" placeholder="Lijst naam">
+            <br>
+            <button type="submit" class="btn btn-primary">Voeg Mailinglijst toe</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        Welkom op de mailinglist create pagina.<br><br>
+        Hier kunnen nieuwe mailing lijsten aangemaakt worden. Om ontvangers toe te voegen moet na het aan maken de lijst, de lijst aangepast worden met de nieuwe mail addressen erbij.
+    </div>
 </div>
 
 
