@@ -33,7 +33,7 @@ nav a:hover{
  }
 
  main{
-    color: #fff;
+    color: #ffa59b;
     height: 100%;
     min-height: calc(100vh - 192px);
  }
@@ -58,5 +58,70 @@ footer{
     color: #f05a49;
     font-weight: 900;
     padding: 0.75em;
+    width: 100%;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #db7f80;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1em;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #eee;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+.right{
+    float: right;
+}
+
+.red {
+    background-color: red;
+}
+
+.center_element {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+iframe {
+    background-color: white;
+    width: 100%;
+    height: auto;
+}
+
+.filler {
+    height: 20px;
+}
+
+.template_button {
+    color: white;
+}
+
+.office {
+    height: 40%;
+    width: auto;
+}
+
+.green {
+    background-color: green;
+}
+
+.full_width {
     width: 100%;
 }
