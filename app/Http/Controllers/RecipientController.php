@@ -104,7 +104,7 @@ class RecipientController extends Controller
         $recipient->firstname = $request->firstname;
         $recipient->lastname = $request->lastname;
         $recipient->save();
-        return redirect()->route('mailinglist.edit')->with('message', 'Ontvanger aangepast!');
+        return redirect()->route('mailinglist.index')->with('message', 'Ontvanger aangepast!');
     }
 
     /**
