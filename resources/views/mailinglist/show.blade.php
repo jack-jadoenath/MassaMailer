@@ -40,7 +40,7 @@
     </div>
     <div class="col-md-6">
         Welkom bij jouw mailing list.<br><br>
-        Hierzo zijn alle recipients van de mailinglist in te zien. Druk op "pas deze lijst aan" om recipients aan te passen.
+        Hierzo zijn alle recipients van de mailinglist in te zien. Druk op "pas deze lijst aan" om recipients aan te passen/toe te voegen.
     </div>
 </div>
 @endsection
