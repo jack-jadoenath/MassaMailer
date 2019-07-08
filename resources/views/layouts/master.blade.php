@@ -12,6 +12,8 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/MM-ico.png')}}">
+
 </head>
 
 <body>
