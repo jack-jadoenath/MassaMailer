@@ -60,6 +60,8 @@
                             placeholder="Nieuwe Voornaam "></td>
                     <td><input name="lastname" type="text" class="form-control" id="lastname"
                             placeholder="Nieuwe Achternaam"></td>
+                        <input name="id" type="text" class="form-control" id="id"
+                        hidden value="{{ $mailinglist->id }}">
                 </tbody>
             </table>
         </div>

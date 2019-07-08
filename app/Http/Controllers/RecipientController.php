@@ -51,7 +51,7 @@ class RecipientController extends Controller
 
         $recipient->save();
 
-        $mailinglistrecipients->mailinglists_id = Mailinglist::where('id', '=', $request->id);
+        $mailinglistrecipients->mailinglists_id = $request->id;
         $mailinglistrecipients->recipients_id = $recipient->id;
 
         //$mailinglistData = Mailinglist::find($mailinglists_id)->getMailinglist;
