@@ -2,14 +2,15 @@
 
 @section('content')
 
+
 <div class="row">
-    <label>Mail opstellen</label>
+    <h1>Mail opstellen</h1>
     <div class="col-md-12">
 
 
 
-        <form method="post" action="{{ route('mail.update', $mail) }}">
-            @method('POST')
+        <form method="post" action="{{ route('mail.update', $mail) }}" enctype="multipart/form-data">
+            @method('PATCH')
             @csrf
             <div class="form-group row">
                 @if(!empty($templates))
@@ -27,13 +28,12 @@
                 <div class="form-group row">
                     <div class="col-sm-12">
                         <label for="name" class="col-form-label">Onderwerp</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="{{ $mail->name }}"
-                            value="{{ $mail->name }}">
+                        <input type="text" name="name" class="form-control" id="name" value="{{ $mail->name }}">
                     </div>
                     <div class="col-sm-12 shadow-textarea">
                         <label for="message">Bericht</label>
                         <textarea class="form-control z-depth-1" rows="13" name="message" id="message"
-                            value="{{ $mail->message }}" placeholder="Schrijf uw bericht hier..."></textarea>
+                            value="{{ $mail->message }}"></textarea>
                     </div>
                     <div class="col-sm-12">
                         <label for="send_at">Verstuur datum (optioneel)</label>

@@ -2,15 +2,11 @@
 
 @section('content')
 
-<title>Mail berichten</title>
 
 <div class="row">
     <div class="col-md-12">
         @if(session('message'))
         {{ session('message') }}
-        <div class="row">
-            <div class="filler"></div>
-        </div>
         @endif
 
         <div class="form-group row mb-0">
@@ -47,6 +43,8 @@
                 </form>
             </div>
         </div>
-        @endforeach
+    </div>
+</div>
+@endforeach
 
-        @endsection
+@endsection

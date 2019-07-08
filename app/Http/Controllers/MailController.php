@@ -37,7 +37,7 @@ class MailController extends Controller
         $user = User::FindOrFail(Auth::id());
         //$templates = $user->template()->get();
         $mailinglists = Mailinglist::where('users_id', '=', Auth::id())->get();
-        $templates = Template::where('users_id', '=', Auth::id())->get();
+        $templates = Template::where('user_id', '=', Auth::id())->get();
         return view('mail.create', compact('mail', 'templates', 'mailinglists'));
     }
 
@@ -77,9 +77,9 @@ class MailController extends Controller
      */
     public function edit(Mail $mail)
     {
-        $mail = Mail::findOrFail($mail);
 
-        return view('mail.create');
+
+        return view('mail.edit', compact('mail', 'templates', 'mailinglists'));
     }
 
     /**
