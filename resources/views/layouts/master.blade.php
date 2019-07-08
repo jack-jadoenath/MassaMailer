@@ -48,10 +48,7 @@
                                 Mail<span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @guest
-                                <a class="dropdown-item" href="{{ route('mail') }}">Berichten
-                                @endguest
-                                <a class="dropdown-item" href="#">Berichten
+                                <a class="dropdown-item" href="{{ route('mail.index') }}">Berichten
                                 </a>
                                 <a class=" dropdown-item" href="{{ route('templates.index')}}">Templates
                                 </a>
