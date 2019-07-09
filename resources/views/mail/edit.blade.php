@@ -16,7 +16,8 @@
                 @if(!empty($templates))
                 <select name="templates_id" class="form-control">
                     @foreach ($templates as $template)
-                    <option value="{{$template->id}}">{{$template->name}}</option>
+                    <option @if ($template->id == $mail->templates_id) selected @endif
+                        value="{{$template->id}}">{{$template->name}}</option>
                     @endforeach
                 </select>
                 @else
@@ -38,7 +39,7 @@
                     <div class="col-sm-12">
                         <label for="send_at">Verstuur datum (optioneel)</label>
                         <div class='input-group date' id='send_at'>
-                            <input type='text' name="send_at" class="form-control" value="{{$mail->send_at}}" />
+                            <input type='date' name="send_at" class="form-control" value="{{$mail->send_at}}" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>

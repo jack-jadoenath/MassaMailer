@@ -81,7 +81,7 @@ class MailController extends Controller
 
         $templates = Template::where('user_id', '=', Auth::id())->get();
 
-        return view('mail.edit', compact('mail', 'templates', 'mailinglists'));
+        return view('mail.edit', compact('mail', 'templates'));
     }
 
     /**
