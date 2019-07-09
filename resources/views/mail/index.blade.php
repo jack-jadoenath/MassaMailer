@@ -4,7 +4,7 @@
 
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         @if(session('message'))
         {{ session('message') }}
         @endif
@@ -14,7 +14,14 @@
                 <a class="btn btn-primary" href="{{ url('/mail/create') }}">Stel een nieuwe mail op</a>
             </div>
         </div>
-
+    </div>
+    <div class="col-md-6">
+        Welkom op de mail pagina.<br><br>
+        Hierzo kunnen nieuwe mails aangemaakt worden om verstuurd te worden en bestaande mails aangepast worden. Het is noodzakelijk om eerst minimaal een template aan te maken.
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
         @foreach($mails as $mail)
         <br>
         <div class="card">
