@@ -30,21 +30,21 @@ Route::get('/packets', function () {
 
 Auth::routes();
 
-Route::post('admin', ['as' => 'admin.login', 'uses' => 'Auth\AdminloginController@login']);
+Route::post('admin', ['as' => 'admin.login', 'uses' => 'Auth\AdminloginController@login'])->middleware('auth');;
 Route::post('packets', ['as' => 'packets.select', 'uses' => 'Auth\Admin\PackageController@select']);
 
 
 Route::resource('/account', 'UserController');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/mailinglist', 'MailinglistController');
+Route::resource('/mailinglist', 'MailinglistController')->middleware('auth');
 Route::resource('/contact', 'SupportticketController');
-Route::resource('/templates', 'TemplateController');
-Route::resource('/mail', 'MailController');
-Route::resource('/recipient', 'RecipientController');
+Route::resource('/templates', 'TemplateController')->middleware('auth');
+Route::resource('/mail', 'MailController')->middleware('auth');
+Route::resource('/recipient', 'RecipientController')->middleware('auth');
 Route::get('/admin', 'Auth\AdminloginController@adminLogin')->middleware('admin')->name('admin');
-Route::get('/admin/dashboard', 'Auth\AdminController@admin')->name('admin.dashboard');
-Route::resource('/admin/support', 'Auth\Admin\SupportController');
-Route::resource('/admin/faq', 'Auth\Admin\FaqController');
-Route::resource('/admin/packets', 'Auth\Admin\PackageController');
-Route::resource('/admin/user', 'Auth\Admin\UserManageController');
+Route::get('/admin/dashboard', 'Auth\AdminController@admin')->middleware('admin')->name('admin.dashboard');
+Route::resource('/admin/support', 'Auth\Admin\SupportController')->middleware('admin');
+Route::resource('/admin/faq', 'Auth\Admin\FaqController')->middleware('admin');
+Route::resource('/admin/packets', 'Auth\Admin\PackageController')->middleware('admin');
+Route::resource('/admin/user', 'Auth\Admin\UserManageController')->middleware('admin');
