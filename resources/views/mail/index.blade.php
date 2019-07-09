@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - Mail
+@endsection
+
 @section('content')
 
 

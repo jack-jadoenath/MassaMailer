@@ -1,13 +1,15 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - Mail
+@endsection
+
 @section('content')
 
 
 <div class="row">
-    <h1>Mail opstellen</h1>
-    <div class="col-md-12">
-
-
+    <div class="col-md-6">
+        <h1>Mail opstellen</h1>
 
         <form method="post" action="{{ route('mail.update', $mail) }}" enctype="multipart/form-data ">
             @method('PATCH')
@@ -43,28 +45,20 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                            <script type="text/javascript">
-                                $(function () {
-                                            $('#send_at').datetimepicker({
-                                                locale: 'nl'
-                                                startDate: date
-                                            });
-                                        });
-                            </script>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <div class="form-group row">
                 <button type="submit" class="btn btn-primary">Pas bericht aan</button>
             </div>
+        </form>
     </div>
-</div>
-</form>
-
-</div>
+    <div class="col-md-6">
+        Welkom op de mail update pagina.<br><br>
+        Hierzo kan de mail geupdate worden mochten aanpassingen nodig zijn. Druk op "Pas bericht aan" om de veranderingen op te slaan<br><br>
+        Let op dat er wel een template bestaat.
+    </div>
 </div>
 
 @endsection

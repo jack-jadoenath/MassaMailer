@@ -1,13 +1,14 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - Mail
+@endsection
+
 @section('content')
 
 <div class="row">
-    <label>Mail opstellen</label>
-    <div class="col-md-12">
-
-
-
+    <div class="col-md-6">
+        <label>Mail opstellen</label>
         <form method="post" action="{{ route('mail.store') }}">
             @method('POST')
             @csrf
@@ -41,28 +42,20 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                            <script type="text/javascript">
-                                $(function () {
-                                            $('#datetimepicker2').datetimepicker({
-                                                locale: 'nl'
-                                                startDate: date
-                                            });
-                                        });
-                            </script>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <div class="form-group row">
                 <button type="submit" class="btn btn-primary">Sla bericht op</button>
             </div>
+        </form>
     </div>
-</div>
-</form>
-
-</div>
+    <div class="col-md-6">
+        Welkom op de mail add pagina.<br><br>
+        Hierzo kan de nieuwe mail aangemaakt worden. Vul de form correct en druk op "Sla bericht op" en de nieuwe mail wordt aangemaakt.<br><br>
+        Let op dat er wel een template bestaat.
+    </div>
 </div>
 
 @endsection
