@@ -14,7 +14,7 @@ class PackagesTableSeeder extends Seeder
         //
 
         DB::table('packages')->insert([
-            'name' => "Email Pakket Bronz",
+            'name' => "Email Pakket Brons",
             'limitlist' => 5,
             'limitmails' => 10,
             'limittemplates' => 5,
@@ -31,6 +31,27 @@ class PackagesTableSeeder extends Seeder
 
         DB::table('packages')->insert([
             'name' => "Email Pakket Goud",
+            'limitlist' => 50,
+            'limitmails' => 75,
+            'limittemplates' => 15,
+            'price' => 15.00
+        ]);
+        DB::table('packages')->insert([
+            'name' => "Email Pakket Diamant",
+            'limitlist' => 50,
+            'limitmails' => 75,
+            'limittemplates' => 15,
+            'price' => 15.00
+        ]);
+        DB::table('packages')->insert([
+            'name' => "Email Pakket Emarald",
+            'limitlist' => 50,
+            'limitmails' => 75,
+            'limittemplates' => 15,
+            'price' => 15.00
+        ]);
+        DB::table('packages')->insert([
+            'name' => "Email Pakket Platina",
             'limitlist' => 50,
             'limitmails' => 75,
             'limittemplates' => 15,

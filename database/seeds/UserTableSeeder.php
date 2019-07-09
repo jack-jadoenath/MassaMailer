@@ -27,5 +27,20 @@ class UserTableSeeder extends Seeder
             'packages_id' => 1,
             'password' => bcrypt('User123')
         ]);
+        DB::table('users')->insert([
+            'name' => 'Pietje Puk',
+            'email' => 'PietjePuk@gmail.com',
+            'phone' => '+31612345465',
+            'password' => bcrypt('Pietje123'),
+            'packages_id' => 3,
+            'admin' => 1
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Gerrit De Jager',
+            'email' => 'gerrit@gmail.nl',
+            'phone' => '0654789234',
+            'packages_id' => 1,
+            'password' => bcrypt('Gerrit123')
+        ]);
     }
 }
