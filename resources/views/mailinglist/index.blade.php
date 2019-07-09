@@ -1,11 +1,15 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - List
+@endsection
+
 @section('content')
 
 <title>Mailinglijst</title>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         @if(session('message'))
         {{ session('message') }}
         <div class="row">
@@ -18,7 +22,14 @@
                 <a class="btn btn-primary" href="{{ url('/mailinglist/create') }}">Maak nieuwe lijst</a>
             </div>
         </div>
-
+    </div>
+    <div class="col-md-6">
+        Welkom op de Mailing list pagina.<br><br>
+        Hierzo kunnen nieuwe mailing lijsten aan gemaakt worden en bestaande lijsten aangepast worden.
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
         @foreach($mailinglists as $mailinglist)
         <br>
         <div class="card">
@@ -40,5 +51,7 @@
             </div>
         </div>
         @endforeach
+    </div>
+</div>
 
-        @endsection
+@endsection

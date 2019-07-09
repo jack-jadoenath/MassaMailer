@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - List
+@endsection
+
 @section('content')
 
 <title>Maak een mailinglist</title>
