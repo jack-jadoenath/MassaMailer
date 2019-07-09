@@ -37,7 +37,7 @@
                     <div class="col-sm-12">
                         <label for="send_at">Verstuur datum (optioneel)</label>
                         <div class='input-group date' id='datetimepicker2'>
-                            <input type='text' name="send_at" class="form-control" />
+                            <input type='date' name="send_at" class="form-control" />
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
