@@ -11,6 +11,8 @@
     @endif
 <div class="row">
     <div class="col-md-6">
+        <a href="{{ route('account.edit', $user) }}" class="btn btn-primary" >Bewerk mijn gegevens</a>
+        <div class="filler"></div>
         <div class="form-group">
             <label for="name">Naam:</label>
             <input class="form-control" id="name" name="name" type="text" value="{{ $user->name }}" readonly="true"  />
@@ -43,10 +45,8 @@
                 </div>
             @endif
         </div>
-        <a href="{{ route('account.edit', $user) }}" class="btn btn-primary" >Bewerk mijn gegevens</a>
     </div>
     <div class="col-md-6">
-        <br>
         Welkom op de account page
         <br>
         <br>
