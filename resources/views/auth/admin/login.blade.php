@@ -1,5 +1,9 @@
 @extends('layouts.adminlogin')
 
+@section('title')
+    MM - Admin - Login
+@endsection
+
 @section('content')
 <div class="container h-100">
     <div class="row justify-content-center vertical-align">

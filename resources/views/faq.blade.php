@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - FAQ
+@endsection
+
 @section('content')
 
         <div class="row">

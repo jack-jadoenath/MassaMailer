@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - Support
+@endsection
+
 @section('content')
     @auth
         @if(session('message'))

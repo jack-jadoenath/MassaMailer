@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer
+@endsection
+
 @section('content')
 
 @if (session('status'))

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    MassaMailer - Register
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

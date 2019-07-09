@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    MM - Admin - Support
+@endsection
+
 @section('content')
     @auth
         @if(session('message'))

@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    MM - Admin - FAQ
+@endsection
+
 @section('content')
         {{ session('message') }}
         

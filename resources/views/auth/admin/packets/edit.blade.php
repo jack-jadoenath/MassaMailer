@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    MM - Admin - Pakketten
+@endsection
+
 @section('content')
         {{ session('message') }}
         <div class="row">

@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    MM - Admin - Dashboard
+@endsection
+
 @section('content')
     @if (session('status'))
         <div class="container">
