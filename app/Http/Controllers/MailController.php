@@ -18,10 +18,10 @@ class MailController extends Controller
      */
     public function index()
     {
-
-        $mails = Mail::all();
-        $mailinglists = Mailinglist::all();
         $user = User::FindOrFail(Auth::id());
+        $mails = $user->mail()->get();
+        $mailinglists = $user->mailinglist()->get();
+
 
         return view('mail.index', compact('mails', 'templates', 'mailinglists'));
     }
@@ -36,7 +36,7 @@ class MailController extends Controller
 
         $user = User::FindOrFail(Auth::id());
         //$templates = $user->template()->get();
-        $mailinglists = Mailinglist::where('users_id', '=', Auth::id())->get();
+        $mailinglists = Mailinglist::where('user_id', '=', Auth::id())->get();
         $templates = Template::where('user_id', '=', Auth::id())->get();
         return view('mail.create', compact('mail', 'templates', 'mailinglists'));
     }
@@ -52,7 +52,7 @@ class MailController extends Controller
         $mail = new Mail();
         $mail->name = $request->name;
         $mail->message = $request->message;
-        $mail->users_id = Auth::user()->id;
+        $mail->user_id = Auth::user()->id;
         $mail->templates_id = $request->templates_id;
         $mail->save();
         return redirect()->route('mail.index')->with('message', 'Bericht opgeslagen en gereed om verstuurd te worden!!');
@@ -94,7 +94,7 @@ class MailController extends Controller
     {
         $mail->name = $request->name;
         $mail->message = $request->message;
-        $mail->users_id = Auth::user()->id;
+        $mail->user_id = Auth::user()->id;
         $mail->templates_id = $request->templates_id;
         $mail->save();
         return redirect()->route('mail.index')->with('message', 'Bericht aangepast en gereed om verstuurd te worden!!');

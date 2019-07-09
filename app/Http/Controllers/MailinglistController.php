@@ -21,8 +21,8 @@ class MailinglistController extends Controller
      */
     public function index()
     {
-        $mailinglists = Mailinglist::all();
         $user = User::FindOrFail(Auth::id());
+        $mailinglists = $user->mailinglist()->get();
 
         return view('mailinglist.index', compact('mailinglists'));
     }
@@ -52,7 +52,7 @@ class MailinglistController extends Controller
         $mailinglist = new Mailinglist();
 
         $mailinglist->name = $request->name;
-        $mailinglist->users_id = Auth::user()->id;
+        $mailinglist->user_id = Auth::user()->id;
 
         $mailinglist->save();
 
@@ -95,7 +95,7 @@ class MailinglistController extends Controller
         $recipients = [];
         $mailinglistRecipients = [];
 
-        
+
         //$mailinglistRecipients = MailinglistRecipients::findOrFail($mailinglist->id);
         $mailinglistRecipients = MailinglistRecipients::where('mailinglists_id', '=', $mailinglist->id)->get();
         foreach ($mailinglistRecipients as $mailinglistRecipient) {

@@ -18,8 +18,8 @@ class CreateMailsTable extends Migration
             $table->string('name');
             $table->longText('message');
             $table->dateTime('send_at')->nullable();
-            #$table->unsignedBigInteger('users_id');
-            #$table->foreign('users_id')->references('id')->on('users');
+            #$table->unsignedBigInteger('user_id');
+            #$table->foreign('user_id')->references('id')->on('users');
             #$table->unsignedBigInteger('templates_id');
             #$table->foreign('templates_id')->references('id')->on('templates');
         });

@@ -14,8 +14,8 @@ class Update1MailsTable extends Migration
     public function up()
     {
         Schema::table('mails', function (Blueprint $table) {
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('templates_id');
             $table->foreign('templates_id')->references('id')->on('templates');
         });
