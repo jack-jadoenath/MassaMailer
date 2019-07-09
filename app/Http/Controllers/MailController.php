@@ -20,6 +20,7 @@ class MailController extends Controller
     {
         $user = User::FindOrFail(Auth::id());
         $mails = $user->mail()->get();
+        $templates = $user->template()->get();
         $mailinglists = $user->mailinglist()->get();
 
 
