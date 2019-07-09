@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    MassaMailer - Mail
+MassaMailer - Mail
 @endsection
 
 @section('content')
@@ -12,18 +12,30 @@
         @if(session('message'))
         {{ session('message') }}
         @endif
-
+        @if(count($templates) >= 1)
         <div class="form-group row mb-0">
             <div class="col-md-8">
                 <a class="btn btn-primary" href="{{ url('/mail/create') }}">Stel een nieuwe mail op</a>
             </div>
         </div>
+        @endif
     </div>
     <div class="col-md-6">
         Welkom op de mail pagina.<br><br>
-        Hierzo kunnen nieuwe mails aangemaakt worden om verstuurd te worden en bestaande mails aangepast worden. Het is noodzakelijk om eerst minimaal een template aan te maken.
+        Hierzo kunnen nieuwe mails aangemaakt worden om verstuurd te worden en bestaande mails aangepast worden. Het is
+        noodzakelijk om eerst minimaal een template aan te maken.
     </div>
 </div>
+
+
+@if(count($templates) == 0)
+<div class="row">
+    <div class="col-md-6">
+        Maak eerst een template aan!
+    </div>
+</div>
+
+@else
 <div class="row">
     <div class="col-md-12">
         @foreach($mails as $mail)
@@ -56,6 +68,11 @@
         </div>
     </div>
 </div>
+
+
+
 @endforeach
+
+@endif
 
 @endsection

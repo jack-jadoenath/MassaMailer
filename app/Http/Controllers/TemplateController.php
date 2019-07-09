@@ -50,7 +50,7 @@ class TemplateController extends Controller
         $templatesCount = count($user->template()->get());
         $packet = Package::FindOrFail($user->packages_id);
 
-        if($templatesCount >= $packet->limittemplates){
+        if ($templatesCount >= $packet->limittemplates) {
             return redirect()->route('templates.index')->with('message', 'U heeft uw Template Limiet al berijkt, om een nieuwe Template te maken dient u een oude te verwijderen of een hogere pakket te kiezen.');
         }
 
@@ -67,7 +67,7 @@ class TemplateController extends Controller
         $template->user_id = Auth::id();
         $template->footers_id = $footer->id;
         $template->headers_id = $header->id;
-       
+
         $template->save();
 
         return redirect()->route('templates.index')->with('message', 'Template is aangemaakt.');
@@ -110,7 +110,7 @@ class TemplateController extends Controller
         //
         $footer = Footer::findOrFail($template->footers_id);
         $header = Header::findOrFail($template->headers_id);
-        
+
         $template->name = $request->name;
 
         $header->size = $request->header_size;

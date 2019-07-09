@@ -15,9 +15,9 @@ class Update1TemplatesTable extends Migration
     {
         Schema::table('templates', function (Blueprint $table) {
             $table->unsignedBigInteger('headers_id');
-            $table->foreign('headers_id')->references('id')->on('headers');
+            $table->foreign('headers_id')->references('id')->on('headers')->onDelete('cascade');;
             $table->unsignedBigInteger('footers_id');
-            $table->foreign('footers_id')->references('id')->on('footers');
+            $table->foreign('footers_id')->references('id')->on('footers')->onDelete('cascade');;
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
